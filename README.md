@@ -120,11 +120,11 @@ How much a moving clock lags (special relativity, speed effect only). Rows = rel
 
 ## jhvhball
 
-![jhvhball — концепт](images/crystal/crystal-device-black.jpg)
+![jhvhball](images/crystal/crystal-device-black.jpg)
 
-Концепт настольного прибора: хрустальный шар, внутри которого лазером выгравированы пять шкал на разной глубине — «Треугольник» (Шкала Яковлева), «Прямой угол», «Расхождение», «Время» и готовая круговая шпаргалка. Шар парит над подставкой с кольцом-селектором и лазером: поверните кольцо → лазер поднимается к выбранному слою → эта шкала светится, ответ читается по ней. Это концепт / прототип (3D-рендер); галерея и видео — на [сайте](https://shkalayakovleva.github.io/#crystal).
+Настольный прибор под заказ: хрустальный шар, внутри которого лазером выгравированы пять шкал на разной глубине — «Треугольник» (Шкала Яковлева), «Прямой угол», «Расхождение», «Время» и готовая круговая шпаргалка. Шар парит над подставкой с кольцом-селектором и лазером: поверните кольцо → лазер поднимается к выбранному слою → эта шкала светится, ответ читается по ней. Изготавливается под заказ; галерея и видео — на [сайте](https://shkalayakovleva.github.io/#crystal).
 
-A desktop instrument concept: a crystal sphere with five laser-engraved scales at different depths (Triangle, Right angle, Divergence, Time and the ready-made cheat sheet) above a stand with a selector ring and a laser. Turn the ring → the laser rises to the chosen layer → that scale lights up; read the answer on it. Concept / prototype (3D render); gallery and video on the [website](https://shkalayakovleva.github.io/#crystal).
+A made-to-order desktop instrument: a crystal sphere with five laser-engraved scales at different depths (Triangle, Right angle, Divergence, Time and the ready-made cheat sheet) above a stand with a selector ring and a laser. Turn the ring → the laser rises to the chosen layer → that scale lights up; read the answer on it. Made to order; gallery and video on the [website](https://shkalayakovleva.github.io/#crystal).
 
 ---
 
