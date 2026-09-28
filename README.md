@@ -104,6 +104,18 @@ Two pictures for any right triangle: from two known sides, find the acute angles
 
 Two objects leave one point at the same speed $v$ with angle $\gamma$ between their courses. Rings = speed of each (10–100 km/h), rays = $\gamma$ from 0° to 180° (spread over the full circle), number = divergence speed $u = 2v \sin(\gamma/2)$, km/h. Distance after time $t$: $d = u \cdot t$; for another speed: value × $v$ / ring. **Example:** 60 km/h, 90°, 2 h → 84.9 × 2 ≈ 170 km. Exact for equal speeds; for different speeds $u = \sqrt{v_1^2 + v_2^2 - 2 v_1 v_2 \cos\gamma}$, and using the ring for the average speed slightly underestimates. Works for ships, cars, planes and walkers — the same maths as the main scale.
 
+## 5. Замедление времени / Time dilation
+
+![Шпаргалка: замедление времени](images/cheatsheet-time-dilation.png)
+
+Сколько отстают движущиеся часы (специальная теория относительности, только эффект скорости). Строка — относительная скорость $u$ (например, скорость расхождения из раздела 4): от пешехода 5 км/ч до 0,999 скорости света. Числа — доля отставания $\Delta t / t = 1 - \sqrt{1 - u^2/c^2}$ (при $u \ll c$ примерно $u^2 / (2c^2)$), отставание за сутки и за год и лоренц-фактор $\gamma = 1/\sqrt{1 - u^2/c^2}$. При малых скоростях отставание растёт как $u^2$: для другой скорости умножьте значение строки на $(u / u_\text{строки})^2$.
+
+**Пример:** две машины 60 км/ч под 90° → $u \approx 84{,}9$ км/ч → $\Delta t / t \approx 3{,}09 \cdot 10^{-15}$ → за год ≈ 0,1 мкс.
+
+GPS: только от скорости (3,87 км/с) часы спутника отстают ≈ 7,2 мкс/сутки, но гравитация (ОТО) ускоряет их ≈ 45,7 мкс/сутки, итог ≈ +38 мкс/сутки. Шпаргалка учитывает только эффект скорости. Около скорости света скорости не складываются «по кругу» (навстречу 0,9c и 0,9c дают ≈ 0,994c), поэтому шпаргалка на расхождение верна только при $u \ll c$.
+
+How much a moving clock lags (special relativity, speed effect only). Rows = relative speed $u$ (e.g. the divergence speed from section 4), from a walker at 5 km/h to 0.999c. Values: lag fraction $\Delta t / t = 1 - \sqrt{1 - u^2/c^2} \approx u^2/(2c^2)$, lag per day and per year, Lorentz factor $\gamma$. **Example:** two cars at 60 km/h, 90° apart → $u \approx 84.9$ km/h → about 0.1 μs per year. GPS: speed alone slows the satellite clock by ≈ 7.2 μs/day, gravity speeds it up by ≈ 45.7 μs/day, net ≈ +38 μs/day. Near light speed, velocities add relativistically, so the divergence sheet is valid only for $u \ll c$.
+
 ---
 
 Автор визуального представления: Владимир Яковлев, 2026.  
