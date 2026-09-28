@@ -201,6 +201,28 @@
       box-shadow: 0 0 18px rgba(34, 230, 255, .55), 0 0 36px rgba(155, 92, 255, .35);
       transition: transform .15s, box-shadow .15s;
     }
+    .buy-btn { position: relative; }
+    .buy-badge {
+      position: absolute;
+      top: -9px; right: -9px;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 7px;
+      box-sizing: border-box;
+      border-radius: 999px;
+      background: #ff3b6b;
+      color: #fff;
+      font-size: 14px;
+      line-height: 26px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 59, 107, .7);
+    }
+    .buy-count {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #9fb4d6;
+    }
+    [hidden] { display: none !important; }
     .buy-btn:hover, .buy-btn:focus {
       transform: translateY(-2px) scale(1.03);
       box-shadow: 0 0 26px rgba(34, 230, 255, .8), 0 0 50px rgba(155, 92, 255, .5);
@@ -550,8 +572,37 @@ Desktop instrument, made to order.
 
 <div class="crystal-buy">
   <div class="crystal-price">$500</div>
-  <a class="buy-btn" href="nibiru.html">Купить / Buy</a>
+  <a class="buy-btn" href="nibiru.html">Купить / Buy<span class="buy-badge" id="buy-badge" hidden></span></a>
+  <div class="buy-count" id="buy-count" hidden></div>
 </div>
+
+<script>
+// Order counter: only reads a public anonymous number, nothing is sent.
+(function () {
+  function ruOrders(n) {
+    var a = n % 10, b = n % 100;
+    if (a === 1 && b !== 11) return 'заказ';
+    if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return 'заказа';
+    return 'заказов';
+  }
+  if (!window.fetch) return;
+  var ctrl = window.AbortController ? new AbortController() : null;
+  if (ctrl) setTimeout(function () { ctrl.abort(); }, 6000);
+  fetch('https://abacus.jasoncameron.dev/get/shkalayakovleva/jhvhball-orders',
+        { cache: 'no-store', referrerPolicy: 'no-referrer', signal: ctrl ? ctrl.signal : undefined })
+    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+    .then(function (d) {
+      var n = parseInt(d && d.value, 10);
+      if (!(n >= 0)) return;
+      var badge = document.getElementById('buy-badge');
+      var line = document.getElementById('buy-count');
+      line.textContent = n + ' ' + ruOrders(n) + ' / ' + n + (n === 1 ? ' order' : ' orders');
+      line.hidden = false;
+      if (n > 0) { badge.textContent = n; badge.hidden = false; }
+    })
+    .catch(function () {});
+})();
+</script>
 
 <div class="cr-viewer" id="cr-viewer" role="dialog" aria-modal="true" aria-label="jhvhball">
   <div class="cr-track"></div>

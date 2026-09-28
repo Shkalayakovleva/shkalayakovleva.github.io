@@ -82,6 +82,13 @@
       min-height: 1.6em;
       margin-top: 14px;
     }
+    #queue {
+      font-size: 18px;
+      font-weight: bold;
+      color: #5ff2ff;
+      text-shadow: 0 0 10px rgba(95, 242, 255, .5);
+      min-height: 1.6em;
+    }
     .small {
       font-size: 12px;
       color: #7f8fab;
@@ -116,12 +123,13 @@ Nibiru. Leave your email — you will get a reply to your request in about
   <button type="submit">Отправить / Send</button>
 </form>
 <div id="result" aria-live="polite"></div>
+<div id="queue" aria-live="polite"></div>
 
 <p class="small">
-Почта никуда не отправляется и нигде не сохраняется — страница ничего не передаёт
-по сети. Это шутка.<br>
-The email is not sent or stored anywhere — this page transmits nothing over
-the network. It is a joke.
+Почта никуда не отправляется и нигде не сохраняется. Считается только число
+заказов: анонимный счётчик +1 (abacus.jasoncameron.dev), один раз с браузера. Это шутка.<br>
+The email is not sent or stored anywhere. Only the number of orders is counted:
+an anonymous +1 counter (abacus.jasoncameron.dev), once per browser. It is a joke.
 </p>
 </div>
 
@@ -132,14 +140,53 @@ the network. It is a joke.
 </p>
 
 <script>
-  // Nothing is sent or stored: no network requests, no cookies, no storage.
-  document.getElementById('nibiru-form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var field = document.getElementById('email');
-    document.getElementById('result').textContent =
-      'Заявка принята. Ожидайте ответа примерно в 2526 году 🛸 / Request accepted. Expect a reply around the year 2526 🛸';
-    field.value = '';
-  });
+  // The email is never sent or stored. The only network request is an
+  // anonymous +1 to a public order counter, once per browser.
+  (function () {
+    var API = 'https://abacus.jasoncameron.dev/';
+    var KEY = 'shkalayakovleva/jhvhball-orders';
+    var FLAG = 'jhvhball-ordered';
+    var result = document.getElementById('result');
+    var queue = document.getElementById('queue');
+    var busy = false;
+
+    function getFlag() { try { return localStorage.getItem(FLAG); } catch (e) { return null; } }
+    function setFlag(v) { try { localStorage.setItem(FLAG, String(v)); } catch (e) {} }
+    function showQueue(n, again) {
+      queue.textContent = again
+        ? 'Вы уже в очереди на Нибиру: ' + n + '-й / You are already #' + n + ' in the Nibiru queue'
+        : 'Вы ' + n + '-й в очереди на Нибиру / You are #' + n + ' in the Nibiru queue';
+    }
+
+    document.getElementById('nibiru-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var field = document.getElementById('email');
+      var ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(field.value.trim());
+      if (!ok) {
+        result.textContent = 'Введите корректную почту / Please enter a valid email';
+        queue.textContent = '';
+        field.focus();
+        return;
+      }
+      field.value = '';
+      result.textContent =
+        'Заявка принята. Ожидайте ответа примерно в 2526 году 🛸 / Request accepted. Expect a reply around the year 2526 🛸';
+
+      var done = parseInt(getFlag(), 10);
+      if (done > 0) { showQueue(done, true); return; }
+      if (busy || !window.fetch) return;
+      busy = true;
+      fetch(API + 'hit/' + KEY, { cache: 'no-store', referrerPolicy: 'no-referrer' })
+        .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+        .then(function (d) {
+          var n = parseInt(d && d.value, 10);
+          if (!(n > 0)) throw 0;
+          setFlag(n);
+          showQueue(n, false);
+        })
+        .catch(function () { busy = false; });
+    });
+  })();
 </script>
 
 </body>
