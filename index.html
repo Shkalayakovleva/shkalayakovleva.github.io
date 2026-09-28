@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Шкала Яковлева — Yakovlev Scale</title>
+
+  <meta name="description" content="Шкала Яковлева (Yakovlev Scale) — круговая номограмма для быстрого определения третьей стороны треугольника по углу и размерам сторон.">
+
+  <meta name="keywords" content="Шкала Яковлева, Yakovlev Scale, треугольник, номограмма, геометрия, шпаргалка, triangle, nomogram, geometry, cheat sheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 { font-size: 38px; }
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .formula {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      background: #fdf3e3;
+      border: 1px solid #e8c98f;
+      border-radius: 10px;
+      padding: 14px;
+      margin: 24px 0;
+    }
+    .note {
+      background: #eef3fb;
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Шкала Яковлева</h1>
+<h2>Yakovlev Scale</h2>
+
+<p>
+Шкала Яковлева — круговая номограмма для быстрого определения
+третьей стороны треугольника.
+</p>
+
+<p>
+Yakovlev Scale is a circular nomogram for quickly determining
+the third side of a triangle.
+</p>
+
+<h2>Принцип / Principle</h2>
+
+<p>
+Шкала представляет геометрическую зависимость в наглядной форме
+и позволяет быстро получать длину третьей стороны по заданным
+параметрам без ручного извлечения квадратного корня.
+</p>
+
+<p>
+The scale provides a visual representation of the geometric
+relationship and allows the third side of a triangle to be
+determined quickly from the given parameters.
+</p>
+
+<div class="formula">c = (a + b) × k,&nbsp;&nbsp; k = sin(γ / 2)</div>
+
+<h2>1. Шкала Яковлева / Yakovlev Scale</h2>
+
+<img src="images/yakovlev-scale.png"
+     alt="Шкала Яковлева — Yakovlev Scale">
+
+<p>
+По кругу отложены углы от 0° до 360°, и против каждого угла стоит готовый
+множитель k = sin(γ/2). Найдите угол между известными сторонами, возьмите
+множитель напротив него, сложите стороны и умножьте сумму на множитель.
+Получится третья сторона: c = (a + b) × k. Синусы и корни считать не нужно,
+хватит одного сложения и одного умножения.
+</p>
+
+<p>
+Angles from 0° to 360° run around the circle, and each angle has a ready
+multiplier k = sin(γ/2). Find the angle between the known sides, take the
+multiplier opposite it, add the sides and multiply the sum by the multiplier:
+c = (a + b) × k.
+</p>
+
+<p class="note">
+Для равнобедренного треугольника (a = b) результат точный. Если стороны
+разные, шкала даёт немного заниженную оценку, и чем сильнее различаются
+стороны, тем больше погрешность. При сторонах 3 и 4 и угле 90° шкала даёт
+4,95 вместо точных 5, это около 1%.<br><br>
+Exact when a = b. For unequal sides the scale gives a slightly low estimate
+(sides 3 and 4 at 90°: 4.95 instead of 5, about 1%).
+</p>
+
+<p>
+<b>Пример / Example:</b> a = 5, b = 5, γ = 90°, k = 0,707,
+c = (5 + 5) × 0,707 ≈ 7,07.
+</p>
+
+<h2>2. Готовая круговая шпаргалка / Ready-made cheat sheet</h2>
+
+<img src="images/cheatsheet-ready.png"
+     alt="Готовая круговая шпаргалка — Ready-made circular cheat sheet">
+
+<p>
+Рабочая таблица по шкале Яковлева, где уже ничего не нужно умножать.
+Каждое кольцо соответствует сумме двух равных сторон, от 1 до 10 см.
+Лучи показывают угол между сторонами, от 0° до 360°. На пересечении кольца
+и луча написана готовая длина третьей стороны. Например, у двух сторон
+по 5 см (кольцо «10 см») с углом 90° третья сторона равна 7,07 см.
+Шпаргалка точна для равнобедренных треугольников и удобна, когда нужно
+быстро найти хорду, раствор циркуля или расстояние между концами двух
+одинаковых планок под заданным углом.
+</p>
+
+<p>
+A ready-to-use table: each ring is the sum of two equal sides (1–10 cm),
+each ray is the angle between them, and the number at the intersection is
+the third side. Example: two 5 cm sides (ring “10 cm”) at 90° give 7.07 cm.
+</p>
+
+<p>
+Автор визуального представления: Владимир Яковлев.<br>
+Yakovlev Scale visual representation: Vladimir Yakovlev.<br>
+2026
+</p>
+
+</body>
+</html>
