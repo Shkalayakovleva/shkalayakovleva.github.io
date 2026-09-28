@@ -66,6 +66,18 @@ Two pictures for any right triangle: from two known sides, find the acute angles
 
 **Example:** sides 2 and 13. Legs: $\alpha \approx 8.7°$, $\beta \approx 81.3°$, hypotenuse ≈ 13.15. Hypotenuse 13 and leg 2: $\alpha \approx 8.8°$, $\beta \approx 81.2°$, other leg ≈ 12.85.
 
+## 4. Расхождение / Divergence (скорость и время)
+
+![Шпаргалка на расхождение](images/cheatsheet-divergence.png)
+
+Два объекта выходят из одной точки с одинаковой скоростью $v$, угол между их курсами $\gamma$. Кольца — скорость каждого (10–100 км/ч), лучи — угол $\gamma$ от 0° до 180° (растянут на весь круг), число на пересечении — скорость расхождения $u = 2v \sin(\gamma/2)$, км/ч. Расстояние между объектами через время $t$: $d = u \cdot t$. Для другой скорости: число × $v$ / кольцо. На 60° $u = v$, на 180° $u = 2v$.
+
+**Пример:** 60 км/ч, угол 90°, 2 часа → 84,9 × 2 ≈ 170 км.
+
+Точно при равных скоростях. Если скорости разные, точная формула $u = \sqrt{v_1^2 + v_2^2 - 2 v_1 v_2 \cos\gamma}$, а кольцо по средней скорости $(v_1 + v_2)/2$ даёт немного заниженный результат (40 и 80 км/ч под 90°: точно 89,4, по шпаргалке 84,9). Подходит для кораблей, машин, самолётов и пешеходов. Это та же формула, что у Шкалы Яковлева: $u = (v + v) \sin(\gamma/2)$.
+
+Two objects leave one point at the same speed $v$ with angle $\gamma$ between their courses. Rings = speed of each (10–100 km/h), rays = $\gamma$ from 0° to 180° (spread over the full circle), number = divergence speed $u = 2v \sin(\gamma/2)$, km/h. Distance after time $t$: $d = u \cdot t$; for another speed: value × $v$ / ring. **Example:** 60 km/h, 90°, 2 h → 84.9 × 2 ≈ 170 km. Exact for equal speeds; for different speeds $u = \sqrt{v_1^2 + v_2^2 - 2 v_1 v_2 \cos\gamma}$, and using the ring for the average speed slightly underestimates. Works for ships, cars, planes and walkers — the same maths as the main scale.
+
 ---
 
 Автор визуального представления: Владимир Яковлев, 2026.  

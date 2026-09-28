@@ -8,7 +8,7 @@
 
   <meta name="description" content="Шкала Яковлева (Yakovlev Scale) — круговая номограмма для быстрого определения третьей стороны треугольника по углу и размерам сторон.">
 
-  <meta name="keywords" content="Шкала Яковлева, Yakovlev Scale, треугольник, номограмма, геометрия, шпаргалка, прямоугольный треугольник, triangle, nomogram, geometry, cheat sheet, right triangle">
+  <meta name="keywords" content="Шкала Яковлева, Yakovlev Scale, треугольник, номограмма, геометрия, шпаргалка, прямоугольный треугольник, triangle, nomogram, geometry, cheat sheet, right triangle, скорость расхождения, divergence speed">
 
   <style>
     body {
@@ -109,7 +109,7 @@ c = (5 + 5) × 0,707 ≈ 7,07.
 <h2>2. Готовая круговая шпаргалка / Ready-made cheat sheet</h2>
 
 <img src="images/cheatsheet-ready.png"
-     alt="Готовая круговая шпаргалка — Ready-made circular cheat sheet, right triangle">
+     alt="Готовая круговая шпаргалка — Ready-made circular cheat sheet, right triangle, скорость расхождения, divergence speed">
 
 <p>
 Рабочая таблица по шкале Яковлева, где уже ничего не нужно умножать.
@@ -194,6 +194,43 @@ legs (0–45°), left half = leg and hypotenuse (0–90°). For a larger side ov
 <p>
 <b>Example:</b> sides 2 and 13. Legs: α ≈ 8.7°, β ≈ 81.3°, hypotenuse
 ≈ 13.15. Hypotenuse 13 and leg 2: α ≈ 8.8°, β ≈ 81.2°, other leg ≈ 12.85.
+</p>
+
+<h2>4. Расхождение / Divergence (скорость и время)</h2>
+
+<img src="images/cheatsheet-divergence.png"
+     alt="Шпаргалка на расхождение — Divergence cheat sheet">
+
+<p>
+Два объекта выходят из одной точки с одинаковой скоростью v, угол между их
+курсами γ. Кольца — скорость каждого (10–100 км/ч), лучи — угол γ от 0° до
+180° (растянут на весь круг), число на пересечении — скорость расхождения
+u = 2v · sin(γ/2), км/ч. Расстояние между объектами через время t:
+d = u × t. Для другой скорости: число × v / кольцо. На 60° u = v, на 180°
+u = 2v.
+</p>
+
+<p>
+<b>Пример:</b> 60 км/ч, угол 90°, 2 часа → 84,9 × 2 ≈ 170 км.
+</p>
+
+<p class="note">
+Точно при равных скоростях. Если скорости разные, точная формула
+u = √(v₁² + v₂² − 2·v₁·v₂·cos γ), а кольцо по средней скорости (v₁ + v₂)/2
+даёт немного заниженный результат (40 и 80 км/ч под 90°: точно 89,4,
+по шпаргалке 84,9). Подходит для кораблей, машин, самолётов и пешеходов.
+Это та же формула, что у Шкалы Яковлева: u = (v + v) · sin(γ/2).
+</p>
+
+<p>
+Two objects leave one point at the same speed v with angle γ between their
+courses. Rings = speed of each (10–100 km/h), rays = γ from 0° to 180°
+(spread over the full circle), number = divergence speed u = 2v · sin(γ/2),
+km/h. Distance after time t: d = u × t; for another speed: value × v / ring.
+<b>Example:</b> 60 km/h, 90°, 2 h → 84.9 × 2 ≈ 170 km. Exact for equal
+speeds; for different speeds u = √(v₁² + v₂² − 2·v₁·v₂·cos γ), and using the
+ring for the average speed slightly underestimates. Works for ships, cars,
+planes and walkers — the same maths as the main scale.
 </p>
 
 </body>
