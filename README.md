@@ -12,7 +12,7 @@ $$c = (a + b) \cdot k, \qquad k = \sin(\gamma / 2)$$
 
 The Yakovlev Scale is a practical cheat sheet based on the classic chord-length formula: for two equal sides $a$, the third side is $c = 2a \sin(\gamma/2)$. Chord tables date back to Ptolemy (2nd century AD), and triangle nomograms were widely used before calculators. What is new here is not the mathematics but the presentation.
 
-Сайт / Website: https://gsmcorp.github.io/Yakovlev-Scale/
+Сайт / Website: https://shkalayakovleva.github.io/
 
 ## 1. Шкала Яковлева (цветная номограмма)
 
