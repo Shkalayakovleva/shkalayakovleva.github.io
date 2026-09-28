@@ -8,7 +8,7 @@
 
   <meta name="description" content="Шкала Яковлева (Yakovlev Scale) — круговая номограмма для быстрого определения третьей стороны треугольника по углу и размерам сторон.">
 
-  <meta name="keywords" content="Шкала Яковлева, Yakovlev Scale, треугольник, номограмма, геометрия, шпаргалка, triangle, nomogram, geometry, cheat sheet">
+  <meta name="keywords" content="Шкала Яковлева, Yakovlev Scale, треугольник, номограмма, геометрия, шпаргалка, прямоугольный треугольник, triangle, nomogram, geometry, cheat sheet, right triangle">
 
   <style>
     body {
@@ -109,7 +109,7 @@ c = (5 + 5) × 0,707 ≈ 7,07.
 <h2>2. Готовая круговая шпаргалка / Ready-made cheat sheet</h2>
 
 <img src="images/cheatsheet-ready.png"
-     alt="Готовая круговая шпаргалка — Ready-made circular cheat sheet">
+     alt="Готовая круговая шпаргалка — Ready-made circular cheat sheet, right triangle">
 
 <p>
 Рабочая таблица по шкале Яковлева, где уже ничего не нужно умножать.
@@ -117,6 +117,9 @@ c = (5 + 5) × 0,707 ≈ 7,07.
 Лучи показывают угол между сторонами, от 0° до 360°. На пересечении кольца
 и луча написана готовая длина третьей стороны. Например, у двух сторон
 по 5 см (кольцо «10 см») с углом 90° третья сторона равна 7,07 см.
+Правая половина круга (0°–180°) основная, левая (180°–360°) зеркальная:
+углы γ и 360° − γ дают одно и то же число. Внизу листа есть краткая
+инструкция и пример.
 Шпаргалка точна для равнобедренных треугольников и удобна, когда нужно
 быстро найти хорду, раствор циркуля или расстояние между концами двух
 одинаковых планок под заданным углом.
@@ -126,12 +129,71 @@ c = (5 + 5) × 0,707 ≈ 7,07.
 A ready-to-use table: each ring is the sum of two equal sides (1–10 cm),
 each ray is the angle between them, and the number at the intersection is
 the third side. Example: two 5 cm sides (ring “10 cm”) at 90° give 7.07 cm.
+The left half (180°–360°) mirrors the right one; a short legend with an
+example is printed at the bottom of the sheet.
 </p>
 
 <p>
 Автор визуального представления: Владимир Яковлев.<br>
 Yakovlev Scale visual representation: Vladimir Yakovlev.<br>
 2026
+</p>
+
+<hr>
+
+<h2>3. Прямой угол / Right angle</h2>
+
+<p>
+Две картинки для любого прямоугольного треугольника: по двум известным
+сторонам найти острые углы и третью сторону. Здесь нет допущения a = b,
+результат точен в пределах точности чтения шкалы.
+</p>
+
+<img src="images/yakovlev-right-angle.png"
+     alt="Шкала Яковлева — прямой угол — Yakovlev Scale, right angle">
+
+<p>
+<b>Цветная номограмма.</b> Разделите меньшую сторону на большую:
+r = меньшая / большая (от 0 до 1), найдите r на внешнем цветном кольце и
+прочитайте ячейку своего кольца: ① «Два катета» — α = arctg r;
+② «Катет и гипотенуза» — α = arcsin r. α — острый угол напротив меньшей
+стороны, β = 90° − α. Третья сторона = большая сторона × множитель из
+ячейки (① √(1 + r²) — гипотенуза, ② √(1 − r²) — второй катет).
+</p>
+
+<img src="images/yakovlev-right-angle-ready.png"
+     alt="Готовая круговая шпаргалка — прямой угол — Ready cheat sheet, right angle">
+
+<p>
+<b>Готовая шпаргалка.</b> Кольца — большая сторона 1–10 см, числа — готовая
+меньшая сторона, угол α читается на краю круга. Правая половина —
+① «Два катета» (α от 0° до 45°), левая — ② «Катет и гипотенуза»
+(α от 0° до 90°). Если большая сторона больше 10 см или дробная,
+приведите её к 10: меньшая × 10 / большая, и ищите на кольце 10.
+</p>
+
+<p>
+<b>Пример:</b> стороны 2 и 13, r = 2 / 13 ≈ 0,154 (на шпаргалке:
+2 × 10 / 13 ≈ 1,54 на кольце 10). Катеты 13 и 2: α ≈ 8,7°, β ≈ 81,3°,
+гипотенуза ≈ 13 × 1,012 ≈ 13,15. Гипотенуза 13 и катет 2: α ≈ 8,8°,
+β ≈ 81,2°, второй катет ≈ 13 × 0,988 ≈ 12,85.
+</p>
+
+<p>
+Two pictures for any right triangle: from two known sides, find the acute
+angles and the third side (no a = b assumption). <b>Colour nomogram:</b>
+compute r = smaller / larger side, find it on the outer colour ring and read
+your ring: ① two legs, α = arctan r; ② leg and hypotenuse, α = arcsin r.
+α is opposite the smaller side, β = 90° − α; third side = larger side × the
+multiplier in the cell. <b>Ready cheat sheet:</b> rings = larger side
+1–10 cm, numbers = ready smaller side, read α at the edge; right half = two
+legs (0–45°), left half = leg and hypotenuse (0–90°). For a larger side over
+10 cm, scale to 10: smaller × 10 / larger.
+</p>
+
+<p>
+<b>Example:</b> sides 2 and 13. Legs: α ≈ 8.7°, β ≈ 81.3°, hypotenuse
+≈ 13.15. Hypotenuse 13 and leg 2: α ≈ 8.8°, β ≈ 81.2°, other leg ≈ 12.85.
 </p>
 
 </body>
