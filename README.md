@@ -42,6 +42,8 @@ The Yakovlev Scale is a practical cheat sheet based on the classic chord-length 
 
 Например, у двух сторон по 5 см (кольцо «10 см») с углом 90° третья сторона равна 7,07 см.
 
+Правая половина круга (0°–180°) основная, левая (180°–360°) зеркальная: углы γ и 360° − γ дают одно и то же число. Внизу листа есть краткая инструкция и пример.
+
 Шпаргалка точна для равнобедренных треугольников и удобна, когда нужно быстро найти хорду, раствор циркуля или расстояние между концами двух одинаковых планок под заданным углом. Её можно распечатать и держать у рабочего места.
 
 ## Как читать / How to read
@@ -63,6 +65,34 @@ The two pictures are read differently:
 **Example:** 120°, ring "7 cm" → 6.06 (= 7 × 0.866), already the third side for a sum of 7 cm. For a sum of 17 cm: 17 × 0.866 ≈ 14.7, or 6.06 × 17 / 7 ≈ 14.7. Wrong: 6.06 × 17 = 103.
 
 The formula is exact only when $a = b$; for unequal sides it slightly underestimates.
+
+---
+
+## 3. Прямой угол / Right angle
+
+Две картинки для любого прямоугольного треугольника: по двум известным сторонам найти острые углы и третью сторону. Здесь нет допущения $a = b$, результат точен в пределах точности чтения шкалы.
+
+![Шкала Яковлева — прямой угол](images/yakovlev-right-angle.png)
+
+**Цветная номограмма.** Разделите меньшую сторону на большую: $r$ = меньшая / большая (от 0 до 1), найдите $r$ на внешнем цветном кольце и прочитайте ячейку своего кольца:
+
+- кольцо ① «Два катета»: $\alpha = \operatorname{arctg} r$;
+- кольцо ② «Катет и гипотенуза»: $\alpha = \arcsin r$.
+
+$\alpha$ — острый угол напротив меньшей стороны, $\beta = 90° - \alpha$. Третья сторона = большая сторона × множитель из ячейки (① $\sqrt{1 + r^2}$ — гипотенуза, ② $\sqrt{1 - r^2}$ — второй катет).
+
+![Готовая круговая шпаргалка — прямой угол](images/yakovlev-right-angle-ready.png)
+
+**Готовая шпаргалка.** Кольца — большая сторона 1–10 см, числа — готовая меньшая сторона, угол $\alpha$ читается на краю круга. Правая половина — ① «Два катета» ($\alpha$ от 0° до 45°), левая — ② «Катет и гипотенуза» ($\alpha$ от 0° до 90°). Если большая сторона больше 10 см или дробная, приведите её к 10: меньшая × 10 / большая, и ищите на кольце 10.
+
+**Пример:** стороны 2 и 13, $r = 2 / 13 \approx 0{,}154$ (на шпаргалке: 2 × 10 / 13 ≈ 1,54 на кольце 10).
+
+- Катеты 13 и 2: $\alpha \approx 8{,}7°$, $\beta \approx 81{,}3°$, гипотенуза ≈ 13 × 1,012 ≈ 13,15.
+- Гипотенуза 13 и катет 2: $\alpha \approx 8{,}8°$, $\beta \approx 81{,}2°$, второй катет ≈ 13 × 0,988 ≈ 12,85.
+
+Two pictures for any right triangle: from two known sides, find the acute angles and the third side (no $a = b$ assumption). **Colour nomogram:** compute $r$ = smaller / larger side, find it on the outer colour ring and read your ring: ① two legs, $\alpha = \arctan r$; ② leg and hypotenuse, $\alpha = \arcsin r$. $\alpha$ is opposite the smaller side, $\beta = 90° - \alpha$; third side = larger side × the multiplier in the cell. **Ready cheat sheet:** rings = larger side 1–10 cm, numbers = ready smaller side, read $\alpha$ at the edge; right half = two legs (0–45°), left half = leg and hypotenuse (0–90°). For a larger side over 10 cm, scale to 10: smaller × 10 / larger.
+
+**Example:** sides 2 and 13. Legs: $\alpha \approx 8.7°$, $\beta \approx 81.3°$, hypotenuse ≈ 13.15. Hypotenuse 13 and leg 2: $\alpha \approx 8.8°$, $\beta \approx 81.2°$, other leg ≈ 12.85.
 
 ---
 
