@@ -14,7 +14,7 @@ The Yakovlev Scale is a practical cheat sheet based on the classic chord-length 
 
 Сайт / Website: https://shkalayakovleva.github.io/
 
-## 1. Шкала Яковлева (цветная номограмма)
+## 1. Шкала Яковлева (цветная номограмма) / Yakovlev Scale (colour nomogram)
 
 ![Шкала Яковлева](images/yakovlev-scale.png)
 
@@ -34,7 +34,7 @@ The Yakovlev Scale is a practical cheat sheet based on the classic chord-length 
 
 **Пример:** $a = 5$, $b = 5$, $\gamma = 90°$, $k = 0{,}707$, $c = (5 + 5) \cdot 0{,}707 \approx 7{,}07$.
 
-## 2. Готовая круговая шпаргалка
+## 2. Готовая круговая шпаргалка / Ready-made cheat sheet
 
 ![Готовая круговая шпаргалка](images/cheatsheet-ready.png)
 
@@ -65,8 +65,6 @@ The two pictures are read differently:
 **Example:** 120°, ring "7 cm" → 6.06 (= 7 × 0.866), already the third side for a sum of 7 cm. For a sum of 17 cm: 17 × 0.866 ≈ 14.7, or 6.06 × 17 / 7 ≈ 14.7. Wrong: 6.06 × 17 = 103.
 
 The formula is exact only when $a = b$; for unequal sides it slightly underestimates.
-
----
 
 ## 3. Прямой угол / Right angle
 
