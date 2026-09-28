@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бронирование — Нибиру / Booking — Nibiru</title>
+  <meta name="robots" content="noindex">
+  <style>
+    html { background: #03050b; }
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      color: #dbe9ff;
+      min-height: 100vh;
+      box-sizing: border-box;
+      background:
+        radial-gradient(1px 1px at 10% 20%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 30% 70%, #cfe 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 55% 15%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 75% 55%, #bdf 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 90% 30%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 20% 90%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 65% 85%, #dcf 50%, transparent 51%),
+        radial-gradient(1px 1px at 45% 45%, #fff 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 85% 80%, #fff 50%, transparent 51%),
+        radial-gradient(1px 1px at 5% 55%, #bef 50%, transparent 51%),
+        radial-gradient(ellipse at 80% 10%, rgba(155, 92, 255, .25), transparent 55%),
+        radial-gradient(ellipse at 10% 90%, rgba(34, 230, 255, .18), transparent 55%),
+        #03050b;
+    }
+    h1 {
+      font-size: 34px;
+      color: #5ff2ff;
+      text-shadow: 0 0 12px rgba(95, 242, 255, .6);
+    }
+    .planet {
+      font-size: 64px;
+      text-align: center;
+      margin: 10px 0 0;
+    }
+    .card {
+      background: rgba(12, 18, 34, .85);
+      border: 1px solid rgba(95, 242, 255, .35);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin: 20px 0;
+      box-shadow: 0 0 24px rgba(34, 230, 255, .12);
+    }
+    .en { color: #9fb4d6; }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    input[type="email"] {
+      flex: 1 1 260px;
+      font-size: 18px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #3a5a8a;
+      background: #0a1020;
+      color: #e6f7ff;
+    }
+    button {
+      font-size: 18px;
+      font-weight: bold;
+      padding: 12px 28px;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      color: #04121a;
+      background: linear-gradient(90deg, #22e6ff, #9b5cff);
+      box-shadow: 0 0 18px rgba(34, 230, 255, .5);
+    }
+    #result {
+      font-size: 20px;
+      color: #7dffcf;
+      min-height: 1.6em;
+      margin-top: 14px;
+    }
+    .small {
+      font-size: 12px;
+      color: #7f8fab;
+    }
+    a { color: #5ff2ff; }
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="planet">🪐</div>
+<h1>Заявка отправлена на Нибиру</h1>
+
+<div class="card">
+<p>
+Ваш запрос на бронирование данного измерительного прибора отправлен на планету
+Нибиру. Оставьте почту — вам напишут ответ по заявке примерно через 500 лет.
+</p>
+<p class="en">
+Your request to reserve this measuring instrument has been sent to the planet
+Nibiru. Leave your email — you will get a reply to your request in about
+500 years.
+</p>
+
+<form id="nibiru-form" novalidate>
+  <input type="email" id="email" placeholder="you@example.com" autocomplete="off" aria-label="Email">
+  <button type="submit">Отправить / Send</button>
+</form>
+<div id="result" aria-live="polite"></div>
+
+<p class="small">
+Почта никуда не отправляется и нигде не сохраняется — страница ничего не передаёт
+по сети. Это шутка.<br>
+The email is not sent or stored anywhere — this page transmits nothing over
+the network. It is a joke.
+</p>
+</div>
+
+<img src="images/crystal/crystal-device-black.jpg" alt="Кристалл Яковлева / Yakovlev Crystal">
+
+<p>
+<a href="index.html#crystal">← Вернуться к Шкале Яковлева / Back to the Yakovlev Scale</a>
+</p>
+
+<script>
+  // Nothing is sent or stored: no network requests, no cookies, no storage.
+  document.getElementById('nibiru-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var field = document.getElementById('email');
+    document.getElementById('result').textContent =
+      'Заявка принята. Ожидайте ответа примерно в 2526 году 🛸 / Request accepted. Expect a reply around the year 2526 🛸';
+    field.value = '';
+  });
+</script>
+
+</body>
+</html>

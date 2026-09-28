@@ -118,6 +118,14 @@ GPS: только от скорости (3,87 км/с) часы спутника
 
 How much a moving clock lags (special relativity, speed effect only). Rows = relative speed $u$ (e.g. the divergence speed from section 4), from a walker at 5 km/h to 0.999c. Values: lag fraction $\Delta t / t = 1 - \sqrt{1 - u^2/c^2} \approx u^2/(2c^2)$, lag per day and per year, Lorentz factor $\gamma$. **Example:** two cars at 60 km/h, 90° apart → $u \approx 84.9$ km/h → about 0.1 μs per year. GPS: speed alone slows the satellite clock by ≈ 7.2 μs/day, gravity speeds it up by ≈ 45.7 μs/day, net ≈ +38 μs/day. Circle view: with $\sin\theta = u/c$ the clock rate is $\cos\theta = 1/\gamma$ — ring ② (leg and hypotenuse) of the right-angle sheet, $r = u/c$, multiplier = clock rate (0.5c → 30°, 0.866; 0.9c → 64.2°, 0.436; 0.99c → 81.9°, 0.141). Near light speed, velocities add relativistically, so the divergence sheet is valid only for $u \ll c$.
 
+## 6. Кристалл Яковлева / Yakovlev Crystal
+
+![Кристалл Яковлева — концепт](images/crystal/crystal-device-black.jpg)
+
+Концепт настольного прибора: хрустальный шар, внутри которого лазером выгравированы пять шкал на разной глубине — «Треугольник» (Шкала Яковлева), «Прямой угол», «Расхождение», «Время» и готовая круговая шпаргалка. Шар парит над подставкой с кольцом-селектором и лазером: поверните кольцо → лазер поднимается к выбранному слою → эта шкала светится, ответ читается по ней. Это концепт / прототип (3D-рендер); галерея и видео — на [сайте](https://shkalayakovleva.github.io/#crystal).
+
+A desktop instrument concept: a crystal sphere with five laser-engraved scales at different depths (Triangle, Right angle, Divergence, Time and the ready-made cheat sheet) above a stand with a selector ring and a laser. Turn the ring → the laser rises to the chosen layer → that scale lights up; read the answer on it. Concept / prototype (3D render); gallery and video on the [website](https://shkalayakovleva.github.io/#crystal).
+
 ---
 
 Автор визуального представления: Владимир Яковлев, 2026.  

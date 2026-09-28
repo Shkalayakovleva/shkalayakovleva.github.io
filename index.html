@@ -38,6 +38,60 @@
       border-radius: 10px;
       padding: 12px 16px;
     }
+    .crystal-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .crystal-gallery a { display: block; }
+    .crystal-gallery img {
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 10px;
+      background: #0b0e14;
+      transition: transform .2s;
+    }
+    .crystal-gallery a:hover img { transform: scale(1.02); }
+    .crystal-video {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      margin: 20px auto;
+      border-radius: 12px;
+      background: #000;
+    }
+    .crystal-buy {
+      text-align: center;
+      background: #0b0e14;
+      color: #e6f7ff;
+      border-radius: 14px;
+      padding: 22px 16px;
+      margin: 24px 0;
+    }
+    .crystal-price {
+      font-size: 34px;
+      font-weight: bold;
+      color: #5ff2ff;
+      margin-bottom: 12px;
+    }
+    .buy-btn {
+      display: inline-block;
+      padding: 14px 42px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #04121a;
+      text-decoration: none;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #22e6ff, #9b5cff);
+      box-shadow: 0 0 18px rgba(34, 230, 255, .55), 0 0 36px rgba(155, 92, 255, .35);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .buy-btn:hover, .buy-btn:focus {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 0 26px rgba(34, 230, 255, .8), 0 0 50px rgba(155, 92, 255, .5);
+    }
   </style>
 </head>
 
@@ -331,6 +385,57 @@ multiplier = clock rate (0.5c → 30°, 0.866; 0.9c → 64.2°, 0.436;
 0.99c → 81.9°, 0.141). Near light speed, velocities add
 relativistically, so the divergence sheet is valid only for u ≪ c.
 </p>
+
+<h2 id="crystal">6. Кристалл Яковлева / Yakovlev Crystal</h2>
+
+<p>
+Концепт настольного измерительного прибора, будто привезённого инопланетянами:
+хрустальный шар, внутри которого лазером выгравированы пять шкал на разной
+глубине — «Треугольник» (Шкала Яковлева), «Прямой угол», «Расхождение»,
+«Время» и готовая круговая шпаргалка. Шар парит над тёмной подставкой
+с кольцом-селектором и лазером.
+</p>
+
+<p>
+<b>Как работает.</b> Поверните кольцо на подставке → лазер поднимается
+к выбранному слою → эта шкала загорается бирюзовым светом, остальные остаются
+едва заметными точками в стекле. Ответ читается по светящейся шкале так же,
+как по бумажной шпаргалке.
+</p>
+
+<p>
+A concept of a desktop measuring instrument that looks like alien tech:
+a crystal sphere with five laser-engraved scales at different depths —
+Triangle (the Yakovlev Scale), Right angle, Divergence, Time and the
+ready-made circular cheat sheet. The sphere hovers above a dark stand with
+a selector ring and a laser. <b>How it works:</b> turn the ring → the laser
+rises to the chosen layer → that scale lights up while the others stay faint.
+Read the answer on the lit scale, just like on the paper cheat sheet.
+</p>
+
+<div class="crystal-gallery">
+  <a href="images/crystal/crystal-device-black.jpg" target="_blank"><img src="images/crystal/crystal-device-black.jpg" alt="Кристалл Яковлева — общий вид / Yakovlev Crystal — hero view" loading="lazy"></a>
+  <a href="images/crystal/crystal-closeup.jpg" target="_blank"><img src="images/crystal/crystal-closeup.jpg" alt="Крупный план шара со светящимся слоем / Close-up of the sphere with a lit layer" loading="lazy"></a>
+  <a href="images/crystal/crystal-top.jpg" target="_blank"><img src="images/crystal/crystal-top.jpg" alt="Вид сверху: гравированные диски внутри шара / Top view: engraved discs inside the sphere" loading="lazy"></a>
+  <a href="images/crystal/crystal-low.jpg" target="_blank"><img src="images/crystal/crystal-low.jpg" alt="Вид снизу сбоку / Low side view" loading="lazy"></a>
+  <a href="images/crystal/crystal-desk.jpg" target="_blank"><img src="images/crystal/crystal-desk.jpg" alt="Кристалл на рабочем столе / The crystal on a desk" loading="lazy"></a>
+</div>
+
+<video class="crystal-video" controls muted loop playsinline preload="metadata"
+       poster="images/crystal/crystal-device-black.jpg">
+  <source src="media/crystal-device-720.mp4" type="video/mp4">
+  Ваш браузер не поддерживает видео. / Your browser does not support video.
+</video>
+
+<p class="note">
+Это концепт / прототип: изображения и видео — 3D-рендер.<br>
+This is a concept / prototype: the images and video are 3D renders.
+</p>
+
+<div class="crystal-buy">
+  <div class="crystal-price">$500</div>
+  <a class="buy-btn" href="nibiru.html">Купить / Buy</a>
+</div>
 
 <hr>
 
