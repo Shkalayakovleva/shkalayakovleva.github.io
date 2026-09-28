@@ -38,30 +38,104 @@
       border-radius: 10px;
       padding: 12px 16px;
     }
-    .crystal-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 12px;
-      margin: 20px 0;
-    }
-    .crystal-gallery a { display: block; }
-    .crystal-gallery img {
-      display: block;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 10px;
-      background: #0b0e14;
-      transition: transform .2s;
-    }
-    .crystal-gallery a:hover img { transform: scale(1.02); }
     .crystal-video {
       display: block;
       width: 100%;
-      max-width: 720px;
-      margin: 20px auto;
+      max-width: 80vh;
+      aspect-ratio: 1 / 1;
+      margin: 16px auto;
       border-radius: 12px;
       background: #000;
+      object-fit: cover;
     }
+    .crystal-hint {
+      margin: 18px 0 6px;
+      font-size: 14px;
+      color: #6b7280;
+      text-align: right;
+    }
+    .crystal-strip-wrap {
+      position: relative;
+      margin: 0 -20px 16px;
+    }
+    .crystal-strip {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 0 20px;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 20px 10px;
+      scrollbar-width: thin;
+    }
+    .crystal-strip a {
+      flex: 0 0 76%;
+      scroll-snap-align: start;
+      display: block;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #0b0e14;
+    }
+    .crystal-strip img {
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      transition: transform .2s;
+    }
+    .crystal-strip a:hover img { transform: scale(1.03); }
+    .crystal-strip-wrap::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 10px;
+      width: 48px;
+      pointer-events: none;
+      background: linear-gradient(to right, rgba(255,255,255,0), #fff);
+      transition: opacity .2s;
+    }
+    .crystal-strip-wrap.at-end::after { opacity: 0; }
+    @media (min-width: 700px) {
+      .crystal-strip a { flex-basis: calc((100% - 40px - 24px) / 3.25); }
+    }
+    .crystal-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background: rgba(4, 8, 14, .94);
+      padding: 16px;
+    }
+    .crystal-lightbox.open { display: flex; }
+    .crystal-lightbox img {
+      width: auto;
+      max-width: 100%;
+      max-height: 80vh;
+      border-radius: 10px;
+    }
+    .crystal-lightbox p {
+      color: #cfe9f2;
+      font-size: 14px;
+      text-align: center;
+      margin: 10px 0 0;
+    }
+    .crystal-lightbox button {
+      position: absolute;
+      border: 0;
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .lb-close { top: 12px; right: 12px; }
+    .lb-prev { left: 8px; top: 50%; transform: translateY(-50%); }
+    .lb-next { right: 8px; top: 50%; transform: translateY(-50%); }
     .crystal-buy {
       text-align: center;
       background: #0b0e14;
@@ -389,23 +463,27 @@ relativistically, so the divergence sheet is valid only for u ≪ c.
 <h2 id="crystal">6. Кристалл Яковлева / Yakovlev Crystal</h2>
 
 <p>
-Концепт настольного измерительного прибора, будто привезённого инопланетянами:
-хрустальный шар, внутри которого лазером выгравированы пять шкал на разной
+Концепт настольного прибора, будто привезённого инопланетянами.<br>
+A concept desktop instrument that looks like alien tech.
+</p>
+
+<video class="crystal-video" controls autoplay muted loop playsinline preload="auto"
+       poster="images/crystal/crystal-device-black.jpg">
+  <source src="media/crystal-device-720.mp4" type="video/mp4">
+  Ваш браузер не поддерживает видео. / Your browser does not support video.
+</video>
+
+<p>
+Хрустальный шар, внутри которого лазером выгравированы пять шкал на разной
 глубине — «Треугольник» (Шкала Яковлева), «Прямой угол», «Расхождение»,
 «Время» и готовая круговая шпаргалка. Шар парит над тёмной подставкой
-с кольцом-селектором и лазером.
+с кольцом-селектором и лазером. <b>Как работает:</b> поверните кольцо → лазер
+поднимается к выбранному слою → эта шкала загорается бирюзовым светом,
+остальные едва заметны. Ответ читается по светящейся шкале, как по бумажной шпаргалке.
 </p>
 
 <p>
-<b>Как работает.</b> Поверните кольцо на подставке → лазер поднимается
-к выбранному слою → эта шкала загорается бирюзовым светом, остальные остаются
-едва заметными точками в стекле. Ответ читается по светящейся шкале так же,
-как по бумажной шпаргалке.
-</p>
-
-<p>
-A concept of a desktop measuring instrument that looks like alien tech:
-a crystal sphere with five laser-engraved scales at different depths —
+A crystal sphere with five laser-engraved scales at different depths —
 Triangle (the Yakovlev Scale), Right angle, Divergence, Time and the
 ready-made circular cheat sheet. The sphere hovers above a dark stand with
 a selector ring and a laser. <b>How it works:</b> turn the ring → the laser
@@ -413,19 +491,16 @@ rises to the chosen layer → that scale lights up while the others stay faint.
 Read the answer on the lit scale, just like on the paper cheat sheet.
 </p>
 
-<div class="crystal-gallery">
-  <a href="images/crystal/crystal-device-black.jpg" target="_blank"><img src="images/crystal/crystal-device-black.jpg" alt="Кристалл Яковлева — общий вид / Yakovlev Crystal — hero view" loading="lazy"></a>
-  <a href="images/crystal/crystal-closeup.jpg" target="_blank"><img src="images/crystal/crystal-closeup.jpg" alt="Крупный план шара со светящимся слоем / Close-up of the sphere with a lit layer" loading="lazy"></a>
-  <a href="images/crystal/crystal-top.jpg" target="_blank"><img src="images/crystal/crystal-top.jpg" alt="Вид сверху: гравированные диски внутри шара / Top view: engraved discs inside the sphere" loading="lazy"></a>
-  <a href="images/crystal/crystal-low.jpg" target="_blank"><img src="images/crystal/crystal-low.jpg" alt="Вид снизу сбоку / Low side view" loading="lazy"></a>
-  <a href="images/crystal/crystal-desk.jpg" target="_blank"><img src="images/crystal/crystal-desk.jpg" alt="Кристалл на рабочем столе / The crystal on a desk" loading="lazy"></a>
+<p class="crystal-hint">Листайте → / Swipe →</p>
+<div class="crystal-strip-wrap">
+  <div class="crystal-strip" id="crystal-strip">
+    <a href="images/crystal/crystal-device-black.jpg" target="_blank"><img src="images/crystal/crystal-device-black.jpg" alt="Кристалл Яковлева — общий вид / Yakovlev Crystal — hero view" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a href="images/crystal/crystal-closeup.jpg" target="_blank"><img src="images/crystal/crystal-closeup.jpg" alt="Крупный план шара со светящимся слоем / Close-up of the sphere with a lit layer" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a href="images/crystal/crystal-top.jpg" target="_blank"><img src="images/crystal/crystal-top.jpg" alt="Вид сверху: гравированные диски внутри шара / Top view: engraved discs inside the sphere" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a href="images/crystal/crystal-low.jpg" target="_blank"><img src="images/crystal/crystal-low.jpg" alt="Вид снизу сбоку / Low side view" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a href="images/crystal/crystal-desk.jpg" target="_blank"><img src="images/crystal/crystal-desk.jpg" alt="Кристалл на рабочем столе / The crystal on a desk" loading="lazy" decoding="async" width="1200" height="1200"></a>
+  </div>
 </div>
-
-<video class="crystal-video" controls muted loop playsinline preload="metadata"
-       poster="images/crystal/crystal-device-black.jpg">
-  <source src="media/crystal-device-720.mp4" type="video/mp4">
-  Ваш браузер не поддерживает видео. / Your browser does not support video.
-</video>
 
 <p class="note">
 Это концепт / прототип: изображения и видео — 3D-рендер.<br>
@@ -436,6 +511,77 @@ This is a concept / prototype: the images and video are 3D renders.
   <div class="crystal-price">$500</div>
   <a class="buy-btn" href="nibiru.html">Купить / Buy</a>
 </div>
+
+<div class="crystal-lightbox" id="crystal-lightbox" role="dialog" aria-modal="true" aria-label="Фото / Photo">
+  <img alt="">
+  <p></p>
+  <button type="button" class="lb-close" aria-label="Закрыть / Close">&times;</button>
+  <button type="button" class="lb-prev" aria-label="Назад / Previous">&#8249;</button>
+  <button type="button" class="lb-next" aria-label="Вперёд / Next">&#8250;</button>
+</div>
+
+<script>
+(function () {
+  var strip = document.getElementById('crystal-strip');
+  var wrap = strip.parentNode;
+  var links = Array.prototype.slice.call(strip.querySelectorAll('a'));
+  var box = document.getElementById('crystal-lightbox');
+  var big = box.querySelector('img');
+  var cap = box.querySelector('p');
+  var cur = 0;
+
+  function edge() {
+    wrap.classList.toggle('at-end', strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4);
+  }
+  strip.addEventListener('scroll', edge, { passive: true });
+  window.addEventListener('resize', edge);
+  edge();
+
+  function show(i) {
+    cur = (i + links.length) % links.length;
+    var img = links[cur].querySelector('img');
+    big.src = links[cur].href;
+    big.alt = img.alt;
+    cap.textContent = img.alt;
+  }
+  function open(i) {
+    show(i);
+    box.classList.add('open');
+    document.documentElement.style.overflow = 'hidden';
+  }
+  function close() {
+    box.classList.remove('open');
+    document.documentElement.style.overflow = '';
+  }
+  links.forEach(function (a, i) {
+    a.addEventListener('click', function (e) { e.preventDefault(); open(i); });
+  });
+  box.querySelector('.lb-close').addEventListener('click', close);
+  box.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
+  box.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
+  box.addEventListener('click', function (e) { if (e.target === box || e.target === big) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!box.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  var x0 = null;
+  box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    x0 = null;
+    if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+  });
+
+  var v = document.querySelector('.crystal-video');
+  if (v && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.removeAttribute('autoplay');
+    v.pause();
+  }
+})();
+</script>
 
 <hr>
 
