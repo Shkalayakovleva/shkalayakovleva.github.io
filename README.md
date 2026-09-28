@@ -6,6 +6,14 @@ Yakovlev Scale is a circular nomogram for quickly determining the third side of 
 
 $$c = (a + b) \cdot k, \qquad k = \sin(\gamma / 2)$$
 
+## Основа / Basis
+
+Шкала Яковлева — удобная шпаргалка на основе классической формулы длины хорды: для двух равных сторон $a$ третья сторона равна $c = 2a \sin(\gamma/2)$. Таблицы хорд известны со времён Птолемея (II век н. э.), а номограммы для треугольников широко применялись до появления калькуляторов. Новое здесь — не математика, а подача: наглядная круговая шкала и готовая таблица, по которым третью сторону можно прикинуть без синусов и корней.
+
+The Yakovlev Scale is a practical cheat sheet based on the classic chord-length formula: for two equal sides $a$, the third side is $c = 2a \sin(\gamma/2)$. Chord tables date back to Ptolemy (2nd century AD), and triangle nomograms were widely used before calculators. What is new here is not the mathematics but the presentation.
+
+Сайт / Website: https://shkalayakovleva.github.io/
+
 ## 1. Шкала Яковлева (цветная номограмма)
 
 ![Шкала Яковлева](images/yakovlev-scale.png)
