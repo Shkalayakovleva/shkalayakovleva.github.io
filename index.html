@@ -38,104 +38,143 @@
       border-radius: 10px;
       padding: 12px 16px;
     }
-    .crystal-video {
-      display: block;
-      width: 100%;
+    .cr-carousel {
+      position: relative;
       max-width: 80vh;
-      aspect-ratio: 1 / 1;
-      margin: 16px auto;
+      margin: 16px auto 8px;
+    }
+    .cr-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
       border-radius: 12px;
       background: #000;
-      object-fit: cover;
     }
-    .crystal-hint {
-      margin: 18px 0 6px;
-      font-size: 14px;
-      color: #6b7280;
-      text-align: right;
-    }
-    .crystal-strip-wrap {
-      position: relative;
-      margin: 0 -20px 16px;
-    }
-    .crystal-strip {
-      display: flex;
-      gap: 12px;
-      overflow-x: auto;
-      overscroll-behavior-x: contain;
-      scroll-snap-type: x mandatory;
-      scroll-padding: 0 20px;
-      -webkit-overflow-scrolling: touch;
-      padding: 0 20px 10px;
-      scrollbar-width: thin;
-    }
-    .crystal-strip a {
-      flex: 0 0 76%;
+    .cr-track::-webkit-scrollbar { display: none; }
+    .cr-slide {
+      flex: 0 0 100%;
       scroll-snap-align: start;
+      scroll-snap-stop: always;
       display: block;
-      border-radius: 10px;
-      overflow: hidden;
+      position: relative;
+      aspect-ratio: 1 / 1;
+      cursor: zoom-in;
       background: #0b0e14;
     }
-    .crystal-strip img {
+    .cr-slide img, .cr-slide video {
       display: block;
-      aspect-ratio: 1 / 1;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      transition: transform .2s;
     }
-    .crystal-strip a:hover img { transform: scale(1.03); }
-    .crystal-strip-wrap::after {
-      content: "";
+    .cr-count {
       position: absolute;
-      top: 0; right: 0; bottom: 10px;
-      width: 48px;
+      top: 10px; right: 10px;
+      padding: 2px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.55);
+      color: #e6f7ff;
+      font-size: 13px;
       pointer-events: none;
-      background: linear-gradient(to right, rgba(255,255,255,0), #fff);
-      transition: opacity .2s;
     }
-    .crystal-strip-wrap.at-end::after { opacity: 0; }
-    @media (min-width: 700px) {
-      .crystal-strip a { flex-basis: calc((100% - 40px - 24px) / 3.25); }
+    .cr-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0,0,0,.5);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      display: none;
     }
-    .crystal-lightbox {
+    .cr-arrow[disabled] { opacity: .25; cursor: default; }
+    .cr-carousel .cr-prev { left: 10px; }
+    .cr-carousel .cr-next { right: 10px; }
+    @media (hover: hover) and (pointer: fine) {
+      .cr-carousel .cr-arrow { display: block; }
+    }
+    .cr-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 80vh;
+      margin: 0 auto 16px;
+      font-size: 13px;
+      color: #6b7280;
+    }
+    .cr-dots { display: flex; gap: 6px; }
+    .cr-dots span {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      transition: background .2s, transform .2s;
+    }
+    .cr-dots span.on { background: #0ea5c6; transform: scale(1.25); }
+    .cr-viewer {
       position: fixed;
       inset: 0;
       z-index: 1000;
       display: none;
+      background: rgba(4, 8, 14, .96);
+      overscroll-behavior: contain;
+    }
+    .cr-viewer.open { display: block; }
+    .cr-viewer .cr-track {
+      height: 100%;
+      border-radius: 0;
+      background: transparent;
+    }
+    .cr-viewer .cr-slide {
+      aspect-ratio: auto;
+      height: 100%;
+      display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      background: rgba(4, 8, 14, .94);
-      padding: 16px;
+      padding: 56px 8px;
+      box-sizing: border-box;
+      background: transparent;
+      cursor: default;
     }
-    .crystal-lightbox.open { display: flex; }
-    .crystal-lightbox img {
+    .cr-viewer .cr-slide img {
       width: auto;
+      height: auto;
       max-width: 100%;
-      max-height: 80vh;
+      max-height: 100%;
+      object-fit: contain;
       border-radius: 10px;
     }
-    .crystal-lightbox p {
-      color: #cfe9f2;
-      font-size: 14px;
-      text-align: center;
-      margin: 10px 0 0;
+    .cr-viewer .cr-slide video {
+      width: min(100%, calc(100vh - 112px));
+      width: min(100%, calc(100dvh - 112px));
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #000;
     }
-    .crystal-lightbox button {
+    .cr-viewer .cr-count { top: 16px; left: 14px; right: auto; }
+    .cr-viewer .cr-arrow { display: block; background: rgba(255,255,255,.14); }
+    .cr-viewer .cr-prev { left: 8px; }
+    .cr-viewer .cr-next { right: 8px; }
+    .cr-close {
       position: absolute;
+      top: 8px; right: 8px;
+      width: 44px; height: 44px;
       border: 0;
-      background: rgba(255,255,255,.12);
-      color: #fff;
-      font-size: 26px;
-      line-height: 1;
-      width: 44px;
-      height: 44px;
       border-radius: 50%;
+      background: rgba(255,255,255,.14);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
       cursor: pointer;
     }
-    .lb-close { top: 12px; right: 12px; }
-    .lb-prev { left: 8px; top: 50%; transform: translateY(-50%); }
-    .lb-next { right: 8px; top: 50%; transform: translateY(-50%); }
     .crystal-buy {
       text-align: center;
       background: #0b0e14;
@@ -460,18 +499,31 @@ multiplier = clock rate (0.5c → 30°, 0.866; 0.9c → 64.2°, 0.436;
 relativistically, so the divergence sheet is valid only for u ≪ c.
 </p>
 
-<h2 id="crystal">6. Кристалл Яковлева / Yakovlev Crystal</h2>
+<h2 id="crystal">jhvhball</h2>
 
-<p>
-Концепт настольного прибора, будто привезённого инопланетянами.<br>
-A concept desktop instrument that looks like alien tech.
-</p>
-
-<video class="crystal-video" controls autoplay muted loop playsinline preload="auto"
-       poster="images/crystal/crystal-device-black.jpg">
-  <source src="media/crystal-device-720.mp4" type="video/mp4">
-  Ваш браузер не поддерживает видео. / Your browser does not support video.
-</video>
+<div class="cr-carousel" id="cr-carousel">
+  <div class="cr-track" id="cr-track">
+    <div class="cr-slide" data-video="media/crystal-device-720.mp4" aria-label="Видео / Video">
+      <video autoplay muted loop playsinline preload="auto"
+             poster="images/crystal/crystal-device-black.jpg">
+        <source src="media/crystal-device-720.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео. / Your browser does not support video.
+      </video>
+    </div>
+    <a class="cr-slide" href="images/crystal/crystal-device-black.jpg" target="_blank"><img src="images/crystal/crystal-device-black.jpg" alt="Общий вид / Hero view" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a class="cr-slide" href="images/crystal/crystal-closeup.jpg" target="_blank"><img src="images/crystal/crystal-closeup.jpg" alt="Крупный план шара со светящимся слоем / Close-up of the sphere with a lit layer" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a class="cr-slide" href="images/crystal/crystal-top.jpg" target="_blank"><img src="images/crystal/crystal-top.jpg" alt="Вид сверху: гравированные диски внутри шара / Top view: engraved discs inside the sphere" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a class="cr-slide" href="images/crystal/crystal-low.jpg" target="_blank"><img src="images/crystal/crystal-low.jpg" alt="Вид снизу сбоку / Low side view" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a class="cr-slide" href="images/crystal/crystal-desk.jpg" target="_blank"><img src="images/crystal/crystal-desk.jpg" alt="На рабочем столе / On a desk" loading="lazy" decoding="async" width="1200" height="1200"></a>
+  </div>
+  <span class="cr-count">1 / 6</span>
+  <button type="button" class="cr-arrow cr-prev" aria-label="Назад / Previous">&#8249;</button>
+  <button type="button" class="cr-arrow cr-next" aria-label="Вперёд / Next">&#8250;</button>
+</div>
+<div class="cr-meta">
+  <div class="cr-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span><span></span></div>
+  <span>Листайте → / Swipe →</span>
+</div>
 
 <p>
 Хрустальный шар, внутри которого лазером выгравированы пять шкал на разной
@@ -491,17 +543,6 @@ rises to the chosen layer → that scale lights up while the others stay faint.
 Read the answer on the lit scale, just like on the paper cheat sheet.
 </p>
 
-<p class="crystal-hint">Листайте → / Swipe →</p>
-<div class="crystal-strip-wrap">
-  <div class="crystal-strip" id="crystal-strip">
-    <a href="images/crystal/crystal-device-black.jpg" target="_blank"><img src="images/crystal/crystal-device-black.jpg" alt="Кристалл Яковлева — общий вид / Yakovlev Crystal — hero view" loading="lazy" decoding="async" width="1200" height="1200"></a>
-    <a href="images/crystal/crystal-closeup.jpg" target="_blank"><img src="images/crystal/crystal-closeup.jpg" alt="Крупный план шара со светящимся слоем / Close-up of the sphere with a lit layer" loading="lazy" decoding="async" width="1200" height="1200"></a>
-    <a href="images/crystal/crystal-top.jpg" target="_blank"><img src="images/crystal/crystal-top.jpg" alt="Вид сверху: гравированные диски внутри шара / Top view: engraved discs inside the sphere" loading="lazy" decoding="async" width="1200" height="1200"></a>
-    <a href="images/crystal/crystal-low.jpg" target="_blank"><img src="images/crystal/crystal-low.jpg" alt="Вид снизу сбоку / Low side view" loading="lazy" decoding="async" width="1200" height="1200"></a>
-    <a href="images/crystal/crystal-desk.jpg" target="_blank"><img src="images/crystal/crystal-desk.jpg" alt="Кристалл на рабочем столе / The crystal on a desk" loading="lazy" decoding="async" width="1200" height="1200"></a>
-  </div>
-</div>
-
 <p class="note">
 Это концепт / прототип: изображения и видео — 3D-рендер.<br>
 This is a concept / prototype: the images and video are 3D renders.
@@ -512,74 +553,117 @@ This is a concept / prototype: the images and video are 3D renders.
   <a class="buy-btn" href="nibiru.html">Купить / Buy</a>
 </div>
 
-<div class="crystal-lightbox" id="crystal-lightbox" role="dialog" aria-modal="true" aria-label="Фото / Photo">
-  <img alt="">
-  <p></p>
-  <button type="button" class="lb-close" aria-label="Закрыть / Close">&times;</button>
-  <button type="button" class="lb-prev" aria-label="Назад / Previous">&#8249;</button>
-  <button type="button" class="lb-next" aria-label="Вперёд / Next">&#8250;</button>
+<div class="cr-viewer" id="cr-viewer" role="dialog" aria-modal="true" aria-label="jhvhball">
+  <div class="cr-track"></div>
+  <span class="cr-count">1 / 6</span>
+  <button type="button" class="cr-arrow cr-prev" aria-label="Назад / Previous">&#8249;</button>
+  <button type="button" class="cr-arrow cr-next" aria-label="Вперёд / Next">&#8250;</button>
+  <button type="button" class="cr-close" aria-label="Закрыть / Close">&times;</button>
 </div>
 
 <script>
 (function () {
-  var strip = document.getElementById('crystal-strip');
-  var wrap = strip.parentNode;
-  var links = Array.prototype.slice.call(strip.querySelectorAll('a'));
-  var box = document.getElementById('crystal-lightbox');
-  var big = box.querySelector('img');
-  var cap = box.querySelector('p');
-  var cur = 0;
+  var root = document.getElementById('cr-carousel');
+  var viewer = document.getElementById('cr-viewer');
+  var slides = Array.prototype.slice.call(root.querySelectorAll('.cr-track > .cr-slide'));
+  var n = slides.length;
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.cr-dots span'));
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var inlineVideo = root.querySelector('video');
+  if (reduce) { inlineVideo.removeAttribute('autoplay'); inlineVideo.pause(); }
 
-  function edge() {
-    wrap.classList.toggle('at-end', strip.scrollLeft + strip.clientWidth >= strip.scrollWidth - 4);
-  }
-  strip.addEventListener('scroll', edge, { passive: true });
-  window.addEventListener('resize', edge);
-  edge();
+  // Build the viewer slides in the same order (video + photos).
+  var vTrack = viewer.querySelector('.cr-track');
+  var viewerVideo = null;
+  slides.forEach(function (sl) {
+    var d = document.createElement('div');
+    d.className = 'cr-slide';
+    if (sl.dataset.video) {
+      viewerVideo = document.createElement('video');
+      viewerVideo.src = sl.dataset.video;
+      viewerVideo.poster = inlineVideo.getAttribute('poster');
+      viewerVideo.controls = true;
+      viewerVideo.loop = true;
+      viewerVideo.muted = true;
+      viewerVideo.playsInline = true;
+      viewerVideo.setAttribute('playsinline', '');
+      viewerVideo.preload = 'none';
+      d.appendChild(viewerVideo);
+    } else {
+      var im = document.createElement('img');
+      im.alt = sl.querySelector('img').alt;
+      im.loading = 'lazy';
+      im.src = sl.href;
+      d.appendChild(im);
+    }
+    vTrack.appendChild(d);
+  });
 
-  function show(i) {
-    cur = (i + links.length) % links.length;
-    var img = links[cur].querySelector('img');
-    big.src = links[cur].href;
-    big.alt = img.alt;
-    cap.textContent = img.alt;
+  function carousel(el, onChange) {
+    var track = el.querySelector('.cr-track');
+    var count = el.querySelector('.cr-count');
+    var prev = el.querySelector('.cr-prev');
+    var next = el.querySelector('.cr-next');
+    var cur = 0, t = null;
+    function index() { var w = track.clientWidth; return w ? Math.max(0, Math.min(n - 1, Math.round(track.scrollLeft / w))) : 0; }
+    function update() {
+      var i = index();
+      count.textContent = (i + 1) + ' / ' + n;
+      prev.disabled = i === 0;
+      next.disabled = i === n - 1;
+      if (i !== cur) { cur = i; onChange(i); }
+    }
+    track.addEventListener('scroll', function () {
+      clearTimeout(t); t = setTimeout(update, 80);
+    }, { passive: true });
+    function go(i, smooth) {
+      track.scrollTo({ left: i * track.clientWidth, behavior: smooth ? 'smooth' : 'auto' });
+      if (!smooth) update();
+    }
+    prev.addEventListener('click', function (e) { e.stopPropagation(); go(index() - 1, true); });
+    next.addEventListener('click', function (e) { e.stopPropagation(); go(index() + 1, true); });
+    update();
+    return { go: go, index: index, track: track };
   }
+
+  function play(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+
+  var inline = carousel(root, function (i) {
+    dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
+    if (i === 0 && !reduce && !viewer.classList.contains('open')) play(inlineVideo); else inlineVideo.pause();
+  });
+  var view = carousel(viewer, function (i) {
+    if (i === 0) play(viewerVideo); else viewerVideo.pause();
+  });
+
   function open(i) {
-    show(i);
-    box.classList.add('open');
+    viewer.classList.add('open');
     document.documentElement.style.overflow = 'hidden';
+    inlineVideo.pause();
+    view.go(i, false);
+    if (i === 0) { viewerVideo.currentTime = inlineVideo.currentTime || 0; play(viewerVideo); }
   }
   function close() {
-    box.classList.remove('open');
+    var i = view.index();
+    viewer.classList.remove('open');
     document.documentElement.style.overflow = '';
+    viewerVideo.pause();
+    inline.go(i, false);
+    if (i === 0 && !reduce) play(inlineVideo);
   }
-  links.forEach(function (a, i) {
-    a.addEventListener('click', function (e) { e.preventDefault(); open(i); });
+  slides.forEach(function (sl, i) {
+    sl.addEventListener('click', function (e) { e.preventDefault(); open(i); });
   });
-  box.querySelector('.lb-close').addEventListener('click', close);
-  box.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); show(cur - 1); });
-  box.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); show(cur + 1); });
-  box.addEventListener('click', function (e) { if (e.target === box || e.target === big) close(); });
+  viewer.querySelector('.cr-close').addEventListener('click', close);
+  vTrack.addEventListener('click', function (e) {
+    if (e.target.classList && e.target.classList.contains('cr-slide')) close();
+  });
   document.addEventListener('keydown', function (e) {
-    if (!box.classList.contains('open')) return;
+    if (!viewer.classList.contains('open')) return;
     if (e.key === 'Escape') close();
-    if (e.key === 'ArrowLeft') show(cur - 1);
-    if (e.key === 'ArrowRight') show(cur + 1);
+    if (e.key === 'ArrowLeft') view.go(view.index() - 1, true);
+    if (e.key === 'ArrowRight') view.go(view.index() + 1, true);
   });
-  var x0 = null;
-  box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-  box.addEventListener('touchend', function (e) {
-    if (x0 === null) return;
-    var dx = e.changedTouches[0].clientX - x0;
-    x0 = null;
-    if (Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
-  });
-
-  var v = document.querySelector('.crystal-video');
-  if (v && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    v.removeAttribute('autoplay');
-    v.pause();
-  }
 })();
 </script>
 
