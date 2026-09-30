@@ -874,5 +874,11 @@ Yakovlev Scale visual representation: Vladimir Yakovlev.<br>
 2026
 </p>
 
+<script>
+/* Счётчик заходов (скрытый): +1 за визит (сессию), +1 за нового посетителя (браузер) */
+(function(){try{var A='https://abacus.jasoncameron.dev/hit/shkalayakovleva/';
+if(!sessionStorage.getItem('sy_v')){sessionStorage.setItem('sy_v','1');fetch(A+'site-visits').catch(function(){});}
+if(!localStorage.getItem('sy_u')){localStorage.setItem('sy_u','1');fetch(A+'site-uniques').catch(function(){});}}catch(e){}})();
+</script>
 </body>
 </html>
