@@ -189,6 +189,16 @@
       color: #5ff2ff;
       margin-bottom: 12px;
     }
+    .crystal-price a {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: text-shadow .2s;
+    }
+    .crystal-price a:hover, .crystal-price a:focus-visible {
+      text-shadow: 0 0 12px rgba(95, 242, 255, .8), 0 0 26px rgba(155, 92, 255, .5);
+    }
     .buy-btn {
       display: inline-block;
       padding: 14px 42px;
@@ -586,7 +596,7 @@ Desktop instrument, made to order.
 </p>
 
 <div class="crystal-buy">
-  <div class="crystal-price">$500</div>
+  <div class="crystal-price"><a href="nibiru.html">$500</a></div>
   <a class="buy-btn" href="nibiru.html">Купить / Buy<span class="buy-badge" id="buy-badge" hidden></span></a>
   <div class="buy-count" id="buy-count" hidden></div>
 </div>
@@ -643,7 +653,9 @@ function syCarousel(rootId, viewerId) {
   var dots = Array.prototype.slice.call((root.nextElementSibling ? root.nextElementSibling.querySelectorAll('.cr-dots span') : []));
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var inlineVideo = root.querySelector('video');
-  if (reduce) { inlineVideo.removeAttribute('autoplay'); inlineVideo.pause(); }
+  var vi = 0;  // index of the video slide (may be any position)
+  slides.forEach(function (sl, k) { if (sl.dataset.video) vi = k; });
+  if (reduce || vi !== 0) { inlineVideo.removeAttribute('autoplay'); inlineVideo.pause(); }
 
   // Build the viewer slides in the same order (video + photos).
   var vTrack = viewer.querySelector('.cr-track');
@@ -703,10 +715,10 @@ function syCarousel(rootId, viewerId) {
 
   var inline = carousel(root, function (i) {
     dots.forEach(function (d, k) { d.classList.toggle('on', k === i); });
-    if (i === 0 && !reduce && !viewer.classList.contains('open')) play(inlineVideo); else inlineVideo.pause();
+    if (i === vi && !reduce && !viewer.classList.contains('open')) play(inlineVideo); else inlineVideo.pause();
   });
   var view = carousel(viewer, function (i) {
-    if (i === 0) play(viewerVideo); else viewerVideo.pause();
+    if (i === vi) play(viewerVideo); else viewerVideo.pause();
   });
 
   function open(i) {
@@ -714,7 +726,7 @@ function syCarousel(rootId, viewerId) {
     document.documentElement.style.overflow = 'hidden';
     inlineVideo.pause();
     view.go(i, false);
-    if (i === 0) { viewerVideo.currentTime = inlineVideo.currentTime || 0; play(viewerVideo); }
+    if (i === vi) { viewerVideo.currentTime = inlineVideo.currentTime || 0; play(viewerVideo); }
   }
   function close() {
     var i = view.index();
@@ -722,7 +734,7 @@ function syCarousel(rootId, viewerId) {
     document.documentElement.style.overflow = '';
     viewerVideo.pause();
     inline.go(i, false);
-    if (i === 0 && !reduce) play(inlineVideo);
+    if (i === vi && !reduce) play(inlineVideo);
   }
   slides.forEach(function (sl, i) {
     sl.addEventListener('click', function (e) { e.preventDefault(); open(i); });
@@ -744,15 +756,15 @@ function syCarousel(rootId, viewerId) {
 
 <div class="cr-carousel" id="bc-carousel">
   <div class="cr-track">
+    <a class="cr-slide" href="images/beacon/lantern-hero.jpg" target="_blank"><img src="images/beacon/lantern-hero.jpg" alt="Общий вид: шар на рукояти, луч лазера / Hero view: sphere on the handle, laser beam" loading="eager" fetchpriority="high" decoding="async" width="1200" height="1200"></a>
     <div class="cr-slide" data-video="media/lantern-nibiru-720.mp4" aria-label="Видео / Video">
-      <video autoplay muted loop playsinline preload="auto"
+      <video muted loop playsinline preload="metadata"
              poster="images/beacon/lantern-nibiru-poster.jpg">
         <source src="media/lantern-nibiru-720.mp4" type="video/mp4">
         Ваш браузер не поддерживает видео. / Your browser does not support video.
       </video>
     </div>
     <a class="cr-slide" href="images/beacon/lantern-desk.jpg" target="_blank"><img src="images/beacon/lantern-desk.jpg" alt="На рабочем столе / On a desk" loading="lazy" decoding="async" width="1200" height="1200"></a>
-    <a class="cr-slide" href="images/beacon/lantern-hero.jpg" target="_blank"><img src="images/beacon/lantern-hero.jpg" alt="Общий вид: шар на рукояти, луч лазера / Hero view: sphere on the handle, laser beam" loading="lazy" decoding="async" width="1200" height="1200"></a>
     <a class="cr-slide" href="images/beacon/lantern-closeup.jpg" target="_blank"><img src="images/beacon/lantern-closeup.jpg" alt="Радар на рукояти показывает на Нибиру / The radar on the handle points to Nibiru" loading="lazy" decoding="async" width="1200" height="1200"></a>
     <a class="cr-slide" href="images/beacon/lantern-night.jpg" target="_blank"><img src="images/beacon/lantern-night.jpg" alt="Луч в ночное небо / Beam into the night sky" loading="lazy" decoding="async" width="1200" height="1200"></a>
   </div>
@@ -787,7 +799,7 @@ Made to order.
 </p>
 
 <div class="crystal-buy">
-  <div class="crystal-price">$15 000</div>
+  <div class="crystal-price"><a href="nibiru.html?item=beacon">$15 000</a></div>
   <a class="buy-btn" href="nibiru.html?item=beacon">Купить / Buy<span class="buy-badge" id="beacon-badge" hidden></span></a>
   <div class="buy-count" id="beacon-count" hidden></div>
 </div>
