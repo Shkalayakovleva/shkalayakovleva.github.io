@@ -227,158 +227,25 @@
       transform: translateY(-2px) scale(1.03);
       box-shadow: 0 0 26px rgba(34, 230, 255, .8), 0 0 50px rgba(155, 92, 255, .5);
     }
-    .music-top {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px 12px;
-      margin: -20px 0 8px;
-    }
-    .music-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 16px;
-      font: bold 15px Arial, sans-serif;
-      color: #5ff2ff;
-      background: #0b0e14;
-      border: 1px solid rgba(95, 242, 255, .5);
-      border-radius: 999px;
-      box-shadow: 0 0 10px rgba(34, 230, 255, .35);
-      cursor: pointer;
-    }
-    .music-pill:hover, .music-pill:focus-visible { box-shadow: 0 0 16px rgba(34, 230, 255, .6); }
-    .music-link { font-size: 13px; color: #6b7280; }
-    .music-panel {
+    .bg-music {
       position: fixed;
-      left: 50%;
-      bottom: 0;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: 520px;
+      right: 14px;
+      bottom: 14px;
       z-index: 900;
-      box-sizing: border-box;
-      padding: 6px 8px 8px;
-      background: #0b0e14;
-      border: 1px solid rgba(95, 242, 255, .35);
-      border-bottom: 0;
-      border-radius: 14px 14px 0 0;
-      box-shadow: 0 -4px 24px rgba(0, 0, 0, .35);
-    }
-    .music-head {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0 2px 6px;
-      font-size: 13px;
-      color: #cfe9f2;
-    }
-    .music-head span { flex: 1; font-weight: bold; color: #5ff2ff; }
-    .music-head a { color: #9fb4d6; font-size: 12px; }
-    .music-head button {
-      width: 30px; height: 30px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, .12);
-      color: #fff;
-      font-size: 16px;
-      line-height: 1;
-      cursor: pointer;
-    }
-    .music-panel iframe {
-      display: block;
-      width: 100%;
-      height: 244px;
-      border: 0;
-      border-radius: 10px;
-      background: #111;
-    }
-    .music-panel.min {
-      left: auto;
-      right: 14px;
-      bottom: 14px;
-      transform: none;
-      width: 1px; height: 1px;
+      width: 44px; height: 44px;
       padding: 0;
-      border: 0;
-      overflow: hidden;
-      opacity: 0;
-      pointer-events: none;
-    }
-    .music-fab {
-      position: fixed;
-      right: 14px;
-      bottom: 14px;
-      z-index: 901;
-      width: 48px; height: 48px;
       border-radius: 50%;
       border: 1px solid rgba(95, 242, 255, .6);
-      background: #0b0e14;
-      color: #5ff2ff;
-      font-size: 22px;
-      box-shadow: 0 0 14px rgba(34, 230, 255, .5);
+      background: rgba(11, 14, 20, .88);
+      font-size: 20px;
+      line-height: 1;
+      box-shadow: 0 0 14px rgba(34, 230, 255, .45);
       cursor: pointer;
     }
   </style>
 </head>
 
 <body>
-
-<div class="music-top" id="music-top">
-  <button type="button" class="music-pill" id="music-btn" aria-expanded="false">▶ Музыка / Music</button>
-  <a class="music-link" href="https://music.yandex.ru/album/5855482/track/43856536" target="_blank" rel="noopener">Открыть в Яндекс Музыке ↗</a>
-  <button type="button" class="music-fab" id="music-fab" aria-label="Показать плеер / Show player" hidden>♪</button>
-</div>
-<script>
-// Official Yandex Music embed player, loaded only after a tap. No audio is hosted here.
-(function () {
-  var SRC = 'https://music.yandex.ru/iframe/album/5855482/track/43856536';
-  var TRACK = 'https://music.yandex.ru/album/5855482/track/43856536';
-  var top = document.getElementById('music-top');
-  var btn = document.getElementById('music-btn');
-  var fab = document.getElementById('music-fab');
-  var panel = null;
-
-  function pad() {
-    document.body.style.paddingBottom = (panel && !panel.classList.contains('min')) ? (panel.offsetHeight + 20) + 'px' : '';
-  }
-  function state(s) {
-    // s: 'closed' | 'open' | 'min'
-    btn.textContent = s === 'open' ? '▾ Скрыть / Hide' : (s === 'min' ? '♪ Музыка / Music' : '▶ Музыка / Music');
-    btn.setAttribute('aria-expanded', s === 'open' ? 'true' : 'false');
-    fab.hidden = s !== 'min';
-    if (panel) panel.classList.toggle('min', s === 'min');
-    pad();
-  }
-  function open() {
-    if (!panel) {
-      panel = document.createElement('div');
-      panel.className = 'music-panel';
-      panel.setAttribute('role', 'region');
-      panel.setAttribute('aria-label', 'Музыка / Music');
-      panel.innerHTML =
-        '<div class="music-head"><span>♪ Музыка / Music</span>' +
-        '<a href="' + TRACK + '" target="_blank" rel="noopener">Яндекс Музыка ↗</a>' +
-        '<button type="button" class="music-hide" aria-label="Свернуть (музыка продолжит играть) / Minimize">▾</button>' +
-        '<button type="button" class="music-close" aria-label="Закрыть и остановить / Close and stop">✕</button></div>' +
-        '<iframe title="Яндекс Музыка / Yandex Music" allow="clipboard-write; autoplay; encrypted-media" src="' + SRC + '"></iframe>';
-      top.appendChild(panel);
-      panel.querySelector('.music-hide').addEventListener('click', function () { state('min'); });
-      panel.querySelector('.music-close').addEventListener('click', close);
-    }
-    state('open');
-  }
-  function close() {
-    if (panel) { panel.parentNode.removeChild(panel); panel = null; }
-    state('closed');
-  }
-  btn.addEventListener('click', function () {
-    if (panel && !panel.classList.contains('min')) state('min'); else open();
-  });
-  fab.addEventListener('click', open);
-  window.addEventListener('resize', pad);
-})();
-</script>
 
 <h1>Шкала Яковлева</h1>
 <h2>Yakovlev Scale</h2>
@@ -947,6 +814,45 @@ syCarousel('bc-carousel', 'bc-viewer');
 Yakovlev Scale visual representation: Vladimir Yakovlev.<br>
 2026
 </p>
+
+<button type="button" class="bg-music" id="bg-music" aria-pressed="false" aria-label="Включить музыку / Play music" hidden>🔇</button>
+<audio id="bg-audio" src="media/space-ambient.mp3" loop preload="none"></audio>
+<script>
+/* Фоновая музыка: «Cosmic Navigation» — Synth-thetic, CC0 (opengameart.org/content/cosmic-navigation).
+   Browsers block autoplay with sound, so it starts on the first tap/click/key; 🔊/🔇 remembers the choice. */
+(function () {
+  var a = document.getElementById('bg-audio'), b = document.getElementById('bg-music'), K = 'sy-music-muted';
+  if (!a || !a.play) return;
+  function muted() { try { return localStorage.getItem(K) === '1'; } catch (e) { return false; } }
+  function save(m) { try { localStorage.setItem(K, m ? '1' : '0'); } catch (e) {} }
+  a.volume = 0.35;
+  function ui() {
+    var on = !a.paused;
+    b.textContent = on ? '🔊' : '🔇';
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    b.setAttribute('aria-label', on ? 'Выключить музыку / Mute music' : 'Включить музыку / Play music');
+  }
+  var evs = ['pointerup', 'touchend', 'click', 'keydown'];
+  function off() { evs.forEach(function (t) { document.removeEventListener(t, first, true); }); }
+  function start() {
+    var p = a.play();
+    if (p && p.then) p.then(function () { off(); ui(); }, ui); else { off(); ui(); }
+  }
+  function first(e) {
+    if (e.target === b) return;
+    if (muted()) { off(); return; }
+    if (a.paused) start(); else off();
+  }
+  evs.forEach(function (t) { document.addEventListener(t, first, true); });
+  b.addEventListener('click', function () {
+    if (a.paused) { save(false); start(); } else { a.pause(); save(true); off(); ui(); }
+  });
+  a.addEventListener('play', ui);
+  a.addEventListener('pause', ui);
+  b.hidden = false;
+  ui();
+})();
+</script>
 
 <script>
 /* Счётчик заходов (скрытый): +1 за визит (сессию), +1 за нового посетителя (браузер) */
