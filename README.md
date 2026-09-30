@@ -126,6 +126,14 @@ How much a moving clock lags (special relativity, speed effect only). Rows = rel
 
 A made-to-order desktop instrument: a crystal sphere with five laser-engraved scales at different depths (Triangle, Right angle, Divergence, Time and the ready-made cheat sheet) above a stand with a selector ring and a laser. Turn the ring → the laser rises to the chosen layer → that scale lights up; read the answer on it. Made to order; gallery and video on the [website](https://shkalayakovleva.github.io/#crystal).
 
+## Маяк на Нибиру / Nibiru Beacon
+
+![Маяк на Нибиру / Nibiru Beacon](images/beacon/lantern-hero.jpg)
+
+Тот же гравированный хрустальный шар на рукояти, как у фонаря: лазер светит сквозь шар и уносит формулы и ваш код ДНК (его предоставляет покупатель) в космос, а встроенный радар показывает, куда целиться, чтобы попасть в Нибиру — там сделают ваш клон, и после смерти вы будете жить на Нибиру. Изготавливается под заказ; видео и галерея — на [сайте](https://shkalayakovleva.github.io/#beacon).
+
+The same engraved crystal sphere on a flashlight-style handle: the laser shines through the sphere and carries the formulas and your DNA code (provided by the buyer) into space, while the built-in radar shows where to aim to reach Nibiru — your clone will be made there, and after death you will live on Nibiru. Made to order; video and gallery on the [website](https://shkalayakovleva.github.io/#beacon).
+
 ---
 
 Автор визуального представления: Владимир Яковлев, 2026.  

@@ -94,6 +94,8 @@
       color: #7f8fab;
     }
     a { color: #5ff2ff; }
+    .item { font-size: 18px; color: #cfe6ff; margin-top: -8px; }
+    .item b { color: #5ff2ff; }
     img {
       width: 100%;
       height: auto;
@@ -106,6 +108,7 @@
 
 <div class="planet">🪐</div>
 <h1>Заявка отправлена на Нибиру</h1>
+<p class="item">Прибор / Item: <b id="item-name">jhvhball</b></p>
 
 <div class="card">
 <p>
@@ -133,10 +136,10 @@ an anonymous +1 counter (abacus.jasoncameron.dev), once per browser. It is a jok
 </p>
 </div>
 
-<img src="images/crystal/crystal-device-black.jpg" alt="Кристалл Яковлева / Yakovlev Crystal">
+<img id="item-img" src="images/crystal/crystal-device-black.jpg" alt="jhvhball">
 
 <p>
-<a href="index.html#crystal">← Вернуться к Шкале Яковлева / Back to the Yakovlev Scale</a>
+<a id="back-link" href="index.html#crystal">← Вернуться к Шкале Яковлева / Back to the Yakovlev Scale</a>
 </p>
 
 <script>
@@ -144,8 +147,20 @@ an anonymous +1 counter (abacus.jasoncameron.dev), once per browser. It is a jok
   // anonymous +1 to a public order counter, once per browser.
   (function () {
     var API = 'https://abacus.jasoncameron.dev/';
-    var KEY = 'shkalayakovleva/jhvhball-orders';
-    var FLAG = 'jhvhball-ordered';
+    var ITEMS = {
+      jhvhball: { key: 'shkalayakovleva/jhvhball-orders', flag: 'jhvhball-ordered',
+                  name: 'jhvhball', img: 'images/crystal/crystal-device-black.jpg', back: 'index.html#crystal' },
+      beacon:   { key: 'shkalayakovleva/beacon-orders', flag: 'beacon-ordered',
+                  name: 'Маяк на Нибиру / Nibiru Beacon', img: 'images/beacon/lantern-hero.jpg', back: 'index.html#beacon' }
+    };
+    var m = /[?&]item=([a-z]+)/.exec(location.search);
+    var item = (m && Object.prototype.hasOwnProperty.call(ITEMS, m[1])) ? ITEMS[m[1]] : ITEMS.jhvhball;
+    var KEY = item.key;
+    var FLAG = item.flag;
+    document.getElementById('item-name').textContent = item.name;
+    document.getElementById('item-img').src = item.img;
+    document.getElementById('item-img').alt = item.name;
+    document.getElementById('back-link').href = item.back;
     var result = document.getElementById('result');
     var queue = document.getElementById('queue');
     var busy = false;

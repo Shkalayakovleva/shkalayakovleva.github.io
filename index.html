@@ -725,7 +725,7 @@ Desktop instrument, made to order.
 </div>
 
 <script>
-// Order counter: only reads a public anonymous number, nothing is sent.
+// Order counters: only read public anonymous numbers, nothing is sent.
 (function () {
   function ruOrders(n) {
     var a = n % 10, b = n % 100;
@@ -734,22 +734,27 @@ Desktop instrument, made to order.
     return 'заказов';
   }
   if (!window.fetch) return;
-  var ctrl = window.AbortController ? new AbortController() : null;
-  if (ctrl) setTimeout(function () { ctrl.abort(); }, 6000);
-  fetch('https://abacus.jasoncameron.dev/get/shkalayakovleva/jhvhball-orders',
-        { cache: 'no-store', referrerPolicy: 'no-referrer', signal: ctrl ? ctrl.signal : undefined })
-    .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-    .then(function (d) {
-      var n = parseInt(d && d.value, 10);
-      if (!(n >= 0)) return;
-      var badge = document.getElementById('buy-badge');
-      var line = document.getElementById('buy-count');
-      line.textContent = n + ' ' + ruOrders(n) + ' / ' + n + (n === 1 ? ' order' : ' orders');
-      line.hidden = false;
-      if (n > 0) { badge.textContent = n; badge.hidden = false; }
-    })
-    .catch(function () {});
+  function orders(key, badgeId, lineId) {
+    var ctrl = window.AbortController ? new AbortController() : null;
+    if (ctrl) setTimeout(function () { ctrl.abort(); }, 6000);
+    fetch('https://abacus.jasoncameron.dev/get/shkalayakovleva/' + key,
+          { cache: 'no-store', referrerPolicy: 'no-referrer', signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
+      .then(function (d) {
+        var n = parseInt(d && d.value, 10);
+        if (!(n >= 0)) return;
+        var badge = document.getElementById(badgeId);
+        var line = document.getElementById(lineId);
+        if (!badge || !line) return;
+        line.textContent = n + ' ' + ruOrders(n) + ' / ' + n + (n === 1 ? ' order' : ' orders');
+        line.hidden = false;
+        if (n > 0) { badge.textContent = n; badge.hidden = false; }
+      })
+      .catch(function () {});
+  }
+  window.syOrders = orders;
 })();
+syOrders('jhvhball-orders', 'buy-badge', 'buy-count');
 </script>
 
 <div class="cr-viewer" id="cr-viewer" role="dialog" aria-modal="true" aria-label="jhvhball">
@@ -761,12 +766,14 @@ Desktop instrument, made to order.
 </div>
 
 <script>
-(function () {
-  var root = document.getElementById('cr-carousel');
-  var viewer = document.getElementById('cr-viewer');
+// Carousel + fullscreen viewer; one instance per section (no shared IDs).
+function syCarousel(rootId, viewerId) {
+  var root = document.getElementById(rootId);
+  var viewer = document.getElementById(viewerId);
+  if (!root || !viewer) return;
   var slides = Array.prototype.slice.call(root.querySelectorAll('.cr-track > .cr-slide'));
   var n = slides.length;
-  var dots = Array.prototype.slice.call(document.querySelectorAll('.cr-dots span'));
+  var dots = Array.prototype.slice.call((root.nextElementSibling ? root.nextElementSibling.querySelectorAll('.cr-dots span') : []));
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var inlineVideo = root.querySelector('video');
   if (reduce) { inlineVideo.removeAttribute('autoplay'); inlineVideo.pause(); }
@@ -863,7 +870,74 @@ Desktop instrument, made to order.
     if (e.key === 'ArrowLeft') view.go(view.index() - 1, true);
     if (e.key === 'ArrowRight') view.go(view.index() + 1, true);
   });
-})();
+}
+</script>
+
+<h2 id="beacon">Маяк на Нибиру / Nibiru Beacon</h2>
+
+<div class="cr-carousel" id="bc-carousel">
+  <div class="cr-track">
+    <div class="cr-slide" data-video="media/lantern-nibiru-720.mp4" aria-label="Видео / Video">
+      <video autoplay muted loop playsinline preload="auto"
+             poster="images/beacon/lantern-nibiru-poster.jpg">
+        <source src="media/lantern-nibiru-720.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео. / Your browser does not support video.
+      </video>
+    </div>
+    <a class="cr-slide" href="images/beacon/lantern-desk.jpg" target="_blank"><img src="images/beacon/lantern-desk.jpg" alt="На рабочем столе / On a desk" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a class="cr-slide" href="images/beacon/lantern-hero.jpg" target="_blank"><img src="images/beacon/lantern-hero.jpg" alt="Общий вид: шар на рукояти, луч лазера / Hero view: sphere on the handle, laser beam" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a class="cr-slide" href="images/beacon/lantern-closeup.jpg" target="_blank"><img src="images/beacon/lantern-closeup.jpg" alt="Радар на рукояти показывает на Нибиру / The radar on the handle points to Nibiru" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a class="cr-slide" href="images/beacon/lantern-night.jpg" target="_blank"><img src="images/beacon/lantern-night.jpg" alt="Луч в ночное небо / Beam into the night sky" loading="lazy" decoding="async" width="1200" height="1200"></a>
+  </div>
+  <span class="cr-count">1 / 5</span>
+  <button type="button" class="cr-arrow cr-prev" aria-label="Назад / Previous">&#8249;</button>
+  <button type="button" class="cr-arrow cr-next" aria-label="Вперёд / Next">&#8250;</button>
+</div>
+<div class="cr-meta">
+  <div class="cr-dots" aria-hidden="true"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+  <span>Листайте → / Swipe →</span>
+</div>
+
+<p>
+Тот же гравированный хрустальный шар — на рукояти, как у фонаря. Мощный лазер
+в рукояти светит сквозь шар, подхватывает формулы — от треугольника до замедления
+времени — и ваш код ДНК (его предоставляет покупатель) и уносит их в космос.
+Встроенный радар показывает, куда целиться, чтобы попасть в Нибиру: там сигнал
+прочтут, сделают ваш клон, и после смерти вы будете жить на Нибиру.
+</p>
+
+<p>
+The same engraved crystal sphere, now on a flashlight-style handle. A powerful
+laser in the handle shines through the sphere, picks up the formulas — from the
+triangle to time dilation — and your DNA code (provided by the buyer) and carries
+them into space. The built-in radar shows where to aim to reach Nibiru: there the
+signal will be read, your clone will be made, and after death you will live on Nibiru.
+</p>
+
+<p class="note">
+Изготавливается под заказ.<br>
+Made to order.
+</p>
+
+<div class="crystal-buy">
+  <div class="crystal-price">$15 000</div>
+  <a class="buy-btn" href="nibiru.html?item=beacon">Купить / Buy<span class="buy-badge" id="beacon-badge" hidden></span></a>
+  <div class="buy-count" id="beacon-count" hidden></div>
+</div>
+
+<script>syOrders('beacon-orders', 'beacon-badge', 'beacon-count');</script>
+
+<div class="cr-viewer" id="bc-viewer" role="dialog" aria-modal="true" aria-label="Маяк на Нибиру / Nibiru Beacon">
+  <div class="cr-track"></div>
+  <span class="cr-count">1 / 5</span>
+  <button type="button" class="cr-arrow cr-prev" aria-label="Назад / Previous">&#8249;</button>
+  <button type="button" class="cr-arrow cr-next" aria-label="Вперёд / Next">&#8250;</button>
+  <button type="button" class="cr-close" aria-label="Закрыть / Close">&times;</button>
+</div>
+
+<script>
+syCarousel('cr-carousel', 'cr-viewer');
+syCarousel('bc-carousel', 'bc-viewer');
 </script>
 
 <hr>
