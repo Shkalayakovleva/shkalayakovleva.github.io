@@ -37,6 +37,6 @@
 <path d="M330.0 897.2L440 812.0" stroke="#8fd8ff" stroke-width="1.2" fill="none"/><circle cx="330.0" cy="897.2" r="3.5" fill="#8fd8ff"/><circle cx="456" cy="812.0" r="16" fill="#0b2445" stroke="#e9f4ff" stroke-width="1.8"/><text x="456.0" y="819.0" font-size="19" text-anchor="middle" fill="#dcecff" font-weight="bold" >12</text>
 <text x="480.0" y="820.0" font-size="20" text-anchor="start" fill="#dcecff" font-weight="normal" >Торцевая крышка, зарядный порт</text>
 <g stroke="#e9f4ff" stroke-width="1.6" fill="none"><rect x="528" y="948" width="364" height="84"/><path d="M528 990H892M778 948V1032"/></g>
-<g fill="#dcecff" font-size="19"><text x="538" y="976" font-weight="bold">Разрез А–А</text><text x="538" y="1018">ИГКО · Нибиру</text>
+<g fill="#dcecff" font-size="19"><text x="538" y="976" font-weight="bold">Разрез А–А</text><text x="538" y="1018">ИППО · 2026</text>
 <text x="788" y="976">М 1:2,6</text><text x="788" y="1018">Лист 2/4</text></g>
 </svg>
