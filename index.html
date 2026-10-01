@@ -337,12 +337,69 @@
       box-shadow: 0 0 14px rgba(34, 230, 255, .45);
       cursor: pointer;
     }
+
+    /* Пришелец в шапке: декоративная картинка, глаза следят за прокруткой */
+    .alien-deco {
+      float: right;
+      position: relative;
+      display: block;
+      width: 420px;
+      max-width: 48%;
+      aspect-ratio: 960 / 938;
+      margin: -10px -20px 10px 10px;
+      background: #1b1d22;
+      cursor: zoom-in;
+      -webkit-tap-highlight-color: transparent;
+      shape-outside: polygon(24% 0, 100% 0, 100% 100%, 34% 100%, 20% 55%);
+      /* soft fade into the page: left and bottom edges dissolve, right edge bleeds to the screen */
+      -webkit-mask-image: linear-gradient(to right, transparent 0, rgba(0,0,0,.35) 14%, #000 34%), linear-gradient(to bottom, rgba(0,0,0,.2) 0, #000 12%, #000 66%, transparent 100%);
+      -webkit-mask-composite: source-in;
+              mask-image: linear-gradient(to right, transparent 0, rgba(0,0,0,.35) 14%, #000 34%), linear-gradient(to bottom, rgba(0,0,0,.2) 0, #000 12%, #000 66%, transparent 100%);
+              mask-composite: intersect;
+    }
+    .alien-deco img, .alien-deco picture { display: block; width: 100%; height: 100%; }
+    .alien-eye {
+      position: absolute;
+      top: 41.09%;
+      width: 8.43%;
+      height: 4.89%;
+      pointer-events: none;
+      -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+              mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+    }
+    .alien-eye.l { left: 38.20%; transform: rotate(18deg); }
+    .alien-eye.r { left: 53.23%; transform: rotate(-18deg); }
+    .alien-iris {
+      position: absolute;
+      left: 23.5%; top: 6%;
+      width: 53%; height: 88%;
+      border-radius: 50%;
+      background: radial-gradient(closest-side, #fff 0, #fff 24%, rgba(246,249,252,.9) 40%, rgba(222,230,238,.5) 60%, rgba(200,210,222,.14) 80%, rgba(200,210,222,0) 96%);
+      mix-blend-mode: screen;
+      will-change: transform;
+    }
+    @media (max-width: 600px) {
+      h1 { margin-bottom: 14px; }
+      .alien-deco {
+        width: calc(64% + 20px);
+        max-width: none;
+        margin: -8px -20px 4px 4px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
 <h1>Шкала Яковлева</h1>
+<a class="alien-deco" id="alien" href="images/alien/alien-full.jpg?v=1" target="_blank" aria-label="Готовая круговая шпаргалка — открыть целиком / Ready-made circular cheat sheet — open full size">
+  <picture>
+    <source srcset="images/alien/alien-deco.webp?v=1" type="image/webp">
+    <img src="images/alien/alien-deco.jpg?v=1" alt="Пришелец на фоне НЛО с готовой круговой шпаргалкой / Alien in front of a UFO with the ready-made circular cheat sheet" width="960" height="938" decoding="async" fetchpriority="high">
+  </picture>
+  <span class="alien-eye l" aria-hidden="true"><span class="alien-iris"></span></span>
+  <span class="alien-eye r" aria-hidden="true"><span class="alien-iris"></span></span>
+</a>
 <h2>Yakovlev Scale</h2>
 
 <p>
@@ -898,6 +955,99 @@ Made to order.
   <button type="button" class="cr-arrow cr-next" aria-label="Вперёд / Next">&#8250;</button>
   <button type="button" class="cr-close" aria-label="Закрыть / Close">&times;</button>
 </div>
+
+<div class="cr-viewer" id="alien-viewer" role="dialog" aria-modal="true" aria-label="Готовая круговая шпаргалка / Ready-made cheat sheet">
+  <div class="cr-track"><div class="cr-slide"><img alt="Готовая круговая шпаргалка с пришельцем и НЛО / Ready-made circular cheat sheet with the alien and UFO" decoding="async"></div></div>
+  <button type="button" class="cr-close" aria-label="Закрыть / Close">&times;</button>
+</div>
+<script>
+/* Пришелец: полноэкранный просмотр по тапу + глаза следят за прокруткой (и за мышью на десктопе). */
+(function () {
+  var root = document.getElementById('alien'), viewer = document.getElementById('alien-viewer');
+  if (!root) return;
+  // --- fullscreen viewer (same look as the carousel viewers) ---
+  if (viewer) {
+    var vImg = viewer.querySelector('img');
+    var open = function () {
+      if (!vImg.getAttribute('src')) vImg.src = root.getAttribute('href');
+      viewer.classList.add('open');
+      document.documentElement.style.overflow = 'hidden';
+    };
+    var close = function () {
+      viewer.classList.remove('open');
+      document.documentElement.style.overflow = '';
+    };
+    root.addEventListener('click', function (e) { e.preventDefault(); open(); });
+    viewer.querySelector('.cr-close').addEventListener('click', close);
+    viewer.querySelector('.cr-track').addEventListener('click', function (e) { if (e.target !== vImg) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && viewer.classList.contains('open')) close(); });
+  }
+  // --- eyes ---
+  var eyes = Array.prototype.slice.call(root.querySelectorAll('.alien-eye')).map(function (el) {
+    var a = (el.classList.contains('l') ? 18 : -18) * Math.PI / 180;
+    return { iris: el.firstElementChild, c: Math.cos(a), s: Math.sin(a) };
+  });
+  var RX = 40, RY = 21;   // max travel, % of the iris size (stays inside the socket)
+  var REST = { x: 0, y: -0.28 };
+  function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+  function apply(g) {
+    var gx = g.x, gy = g.y, m = Math.sqrt(gx * gx + gy * gy);
+    if (m > 1) { gx /= m; gy /= m; }             // clamp the gaze to the socket ellipse
+    var dx = gx * RX, dy = gy * RY;               // same on-screen shift for both eyes
+    eyes.forEach(function (e) {
+      // the socket is rotated, so express the shift in its local frame (its soft mask clips the edge)
+      var x = dx * e.c + dy * e.s, y = -dx * e.s + dy * e.c;
+      e.iris.style.transform = 'translate(' + x.toFixed(2) + '%,' + y.toFixed(2) + '%)';
+    });
+  }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { apply({ x: 0, y: -0.1 }); return; }
+
+  var cur = { x: REST.x, y: REST.y }, look = null, lookUntil = 0, jit = { x: 0, y: 0 }, raf = 0;
+  function scrollGaze() {
+    // 0 while the eyes sit where they load, 1 once they have scrolled up near the top edge
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    var r = root.getBoundingClientRect();
+    var eyeDoc = r.top + y + r.height * 0.435;
+    var p = clamp(y / Math.max(160, eyeDoc - 70), 0, 1);
+    p = p * p * (3 - 2 * p);                       // smoothstep
+    return { x: REST.x - 0.5 * p, y: REST.y + 1.25 * p };   // forward/up -> down, toward the text on the left
+  }
+  function pointGaze(cx, cy) {
+    var r = root.getBoundingClientRect();
+    var ex = r.left + r.width * 0.5, ey = r.top + r.height * 0.435;
+    var dx = (cx - ex) / (r.width * 0.9), dy = (cy - ey) / (r.height * 0.9);
+    return { x: dx / Math.sqrt(1 + dx * dx), y: dy / Math.sqrt(1 + dy * dy) };
+  }
+  function tick(t) {
+    raf = 0;
+    var g = (look && t < lookUntil) ? look : scrollGaze();
+    var tx = g.x + jit.x, ty = g.y + jit.y;
+    cur.x += (tx - cur.x) * 0.14;
+    cur.y += (ty - cur.y) * 0.14;
+    apply(cur);
+    if (Math.abs(tx - cur.x) > 0.002 || Math.abs(ty - cur.y) > 0.002 || (look && t < lookUntil)) kick();
+  }
+  function kick() { if (!raf) raf = requestAnimationFrame(tick); }
+  window.addEventListener('scroll', function () { look = null; kick(); }, { passive: true });
+  window.addEventListener('resize', kick, { passive: true });
+  document.addEventListener('pointermove', function (e) {
+    if (e.pointerType !== 'mouse') return;
+    look = pointGaze(e.clientX, e.clientY); lookUntil = performance.now() + 2500; kick();
+  }, { passive: true });
+  document.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse' || root.contains(e.target)) return;
+    look = pointGaze(e.clientX, e.clientY); lookUntil = performance.now() + 1400; kick();
+  }, { passive: true });
+  // tiny involuntary eye movements so the gaze never looks frozen
+  (function saccade() {
+    jit = { x: (Math.random() - 0.5) * 0.08, y: (Math.random() - 0.5) * 0.06 };
+    kick();
+    setTimeout(saccade, 1600 + Math.random() * 2600);
+  })();
+  apply(cur); kick();
+})();
+</script>
 
 <script>
 syCarousel('cr-carousel', 'cr-viewer');
