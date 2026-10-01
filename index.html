@@ -1107,5 +1107,48 @@ Yakovlev Scale visual representation: Vladimir Yakovlev.<br>
 if(!sessionStorage.getItem('sy_v')){sessionStorage.setItem('sy_v','1');fetch(A+'site-visits').catch(function(){});}
 if(!localStorage.getItem('sy_u')){localStorage.setItem('sy_u','1');fetch(A+'site-uniques').catch(function(){});}}catch(e){}})();
 </script>
+<script>
+/* Дрожание текста при прокрутке: заголовки и абзацы слегка вибрируют, сила ~ скорости, затихает за ~200 мс.
+   Only transform on block elements; only those on screen are touched. Off with prefers-reduced-motion. */
+(function () {
+  if (!window.requestAnimationFrame || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var els = Array.prototype.slice.call(document.querySelectorAll(
+    'body > h1, body > h2, body > h3, body > p, body > .formula, body > ol > li, body > ul > li'));
+  if (!els.length) return;
+  var vis = els;                                   // fallback: all
+  if ('IntersectionObserver' in window) {
+    var on = new Set();
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) on.add(e.target); else { on.delete(e.target); e.target.style.transform = ''; } });
+      vis = Array.from(on);
+    }, { rootMargin: '80px 0px' });
+    vis = [];
+    els.forEach(function (el) { io.observe(el); });
+  }
+  var lastY = window.pageYOffset, lastT = 0, level = 0, target = 0, raf = 0, dirty = false;
+  function frame(t) {
+    raf = 0;
+    var y = window.pageYOffset, dt = lastT ? Math.min(64, t - lastT) : 16;
+    var v = Math.abs(y - lastY) / Math.max(1, dt);  // px per ms
+    lastY = y; lastT = t;
+    target = v > 0.02 ? Math.min(1, 0.35 + v / 2.2) : 0;
+    // rise fast, calm down smoothly (~200 ms)
+    level += (target - level) * (target > level ? 0.5 : 1 - Math.exp(-dt / 70));
+    if (level < 0.03 && target === 0) {
+      level = 0; lastT = 0;
+      if (dirty) { vis.forEach(function (el) { el.style.transform = ''; }); dirty = false; }
+      return;
+    }
+    var amp = 1.5 * level, rot = 0.35 * level;     // px, deg
+    for (var i = 0; i < vis.length; i++) {
+      vis[i].style.transform = 'translate3d(' + ((Math.random() * 2 - 1) * amp).toFixed(2) + 'px,' +
+        ((Math.random() * 2 - 1) * amp * 0.7).toFixed(2) + 'px,0) rotate(' + ((Math.random() * 2 - 1) * rot).toFixed(3) + 'deg)';
+    }
+    dirty = true;
+    raf = requestAnimationFrame(frame);
+  }
+  window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(frame); }, { passive: true });
+})();
+</script>
 </body>
 </html>
