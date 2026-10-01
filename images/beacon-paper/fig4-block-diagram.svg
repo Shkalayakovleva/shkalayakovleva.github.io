@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 790" width="1000" height="790" role="img" aria-label="Рис. 4. Структурная схема радара наведения и маяка / Fig. 4. Block diagram of the aiming radar and beacon" font-family="Arial, Helvetica, 'Liberation Sans', sans-serif">
+<title>Рис. 4. Структурная схема радара наведения и маяка / Fig. 4. Block diagram of the aiming radar and beacon</title>
+<defs>
+<pattern id="g" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="#16345e" stroke-width="1"/></pattern>
+<pattern id="G" width="100" height="100" patternUnits="userSpaceOnUse"><rect width="100" height="100" fill="url(#g)"/><path d="M100 0H0V100" fill="none" stroke="#1d4277" stroke-width="1.4"/></pattern>
+<pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V10" stroke="#8fd8ff" stroke-width="1.6" opacity=".55"/></pattern>
+<marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 1L10 5L0 9z" fill="#8fd8ff"/></marker>
+<marker id="aw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1L10 5L0 9z" fill="#e9f4ff"/></marker>
+<marker id="ac" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1L10 5L0 9z" fill="#5ff2ff"/></marker>
+</defs>
+<rect width="1000" height="790" fill="#0b2445"/><rect width="1000" height="790" fill="url(#G)"/>
+<rect x="8" y="8" width="984" height="774" fill="none" stroke="#e9f4ff" stroke-width="2"/>
+<text x="30.0" y="50.0" font-size="28" text-anchor="start" fill="#dcecff" font-weight="bold" >Рис. 4 · Структурная схема</text>
+<text x="30.0" y="82.0" font-size="22" text-anchor="start" fill="#8fd8ff" font-weight="normal" >Radar + beacon block diagram</text>
+<rect x="30" y="120" width="270" height="84" rx="10" fill="#0f2f57" stroke="#e9f4ff" stroke-width="2.4"/><text x="165.0" y="158.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Аккумулятор</text>
+<text x="165.0" y="186.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >2×21700 · 7,4 В · 37 Вт·ч</text>
+<rect x="30" y="250" width="270" height="84" rx="10" fill="#0f2f57" stroke="#e9f4ff" stroke-width="2.4"/><text x="165.0" y="288.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Контроллер питания</text>
+<text x="165.0" y="316.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >BMS · DC/DC 5 В / 3,3 В</text>
+<rect x="30" y="380" width="270" height="84" rx="10" fill="#0f2f57" stroke="#e9f4ff" stroke-width="2.4"/><text x="165.0" y="418.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Кнопка пуска</text>
+<text x="165.0" y="446.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >двойное нажатие</text>
+<path d="M165 204V246" fill="none" stroke="#e9f4ff" stroke-width="2.2" marker-end="url(#aw)" /><path d="M300 292H360" fill="none" stroke="#e9f4ff" stroke-width="2.2" marker-end="url(#aw)" /><path d="M300 422H360" fill="none" stroke="#e9f4ff" stroke-width="2.2" marker-end="url(#aw)" /><rect x="364" y="250" width="272" height="214" rx="10" fill="#103c5e" stroke="#5ff2ff" stroke-width="2.4"/><text x="500.0" y="353.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Микроконтроллер</text>
+<text x="500.0" y="381.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >MCU · ARM / «Ω-ядро»</text>
+<text x="500.0" y="410.0" font-size="18" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >разрешает пуск при</text>
+<text x="500.0" y="432.0" font-size="18" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >наведении ±0,1″</text>
+<rect x="364" y="120" width="272" height="84" rx="10" fill="#0f2f57" stroke="#c39bff" stroke-width="2.4"/><text x="500.0" y="158.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Память ДНК-кода</text>
+<text x="500.0" y="186.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >данные покупателя · 6,2 Гбит</text>
+<path d="M500 204V246" fill="none" stroke="#c39bff" stroke-width="2.2" marker-end="url(#aw)" /><rect x="686" y="120" width="290" height="84" rx="10" fill="#0f2f57" stroke="#c39bff" stroke-width="2.4"/><text x="831.0" y="158.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Модулятор PPM</text>
+<text x="831.0" y="186.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >ДНК + формулы шкалы</text>
+<rect x="686" y="250" width="290" height="84" rx="10" fill="#0f2f57" stroke="#e9f4ff" stroke-width="2.4"/><text x="831.0" y="288.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Драйвер лазера</text>
+<text x="831.0" y="316.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >ток до 4,5 А</text>
+<rect x="686" y="380" width="290" height="84" rx="10" fill="#0f2f57" stroke="#5ff2ff" stroke-width="2.4"/><text x="831.0" y="418.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Лазерный диод</text>
+<text x="831.0" y="446.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >488 нм · 5 Вт</text>
+<rect x="686" y="510" width="290" height="84" rx="10" fill="#0f2f57" stroke="#5ff2ff" stroke-width="2.4"/><text x="831.0" y="548.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Кристаллическая сфера</text>
+<text x="831.0" y="576.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >диски + ДНК-гравировка</text>
+<path d="M636 270C664 270 660 162 682 162" fill="none" stroke="#c39bff" stroke-width="2.2" marker-end="url(#aw)" /><path d="M831 204V246" fill="none" stroke="#e9f4ff" stroke-width="2.2" marker-end="url(#aw)" /><path d="M831 334V376" fill="none" stroke="#e9f4ff" stroke-width="2.2" marker-end="url(#aw)" /><path d="M831 464V506" fill="none" stroke="#5ff2ff" stroke-width="2.2" marker-end="url(#ac)" /><path d="M831 594V650" fill="none" stroke="#5ff2ff" stroke-width="2.2" marker-end="url(#ac)" /><text x="831.0" y="680.0" font-size="22" text-anchor="middle" fill="#5ff2ff" font-weight="bold" >⟶ луч-маяк к Нибиру</text>
+<text x="831.0" y="708.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >≈235 а.е. · ≈32,6 ч в пути</text>
+<rect x="30" y="520" width="270" height="84" rx="10" fill="#0f2f57" stroke="#e9f4ff" stroke-width="2.4"/><text x="165.0" y="558.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Гравипеленгатор</text>
+<text x="165.0" y="586.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >поиск массы Нибиру</text>
+<rect x="30" y="640" width="270" height="84" rx="10" fill="#0f2f57" stroke="#e9f4ff" stroke-width="2.4"/><text x="165.0" y="678.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Звёздный датчик + IMU</text>
+<text x="165.0" y="706.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >ориентация, 9 осей</text>
+<rect x="364" y="580" width="272" height="84" rx="10" fill="#0f2f57" stroke="#5ff2ff" stroke-width="2.4"/><text x="500.0" y="618.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Процессор радара</text>
+<text x="500.0" y="646.0" font-size="19" text-anchor="middle" fill="#8fd8ff" font-weight="normal" >азимут / угол места</text>
+<path d="M300 562H330V610H360" fill="none" stroke="#e9f4ff" stroke-width="2.2" marker-end="url(#aw)" /><path d="M300 682H330V634H360" fill="none" stroke="#e9f4ff" stroke-width="2.2" marker-end="url(#aw)" /><path d="M500 580V468" fill="none" stroke="#5ff2ff" stroke-width="2.2" marker-end="url(#ac)" /><rect x="364" y="690" width="272" height="56" rx="10" fill="#0f2f57" stroke="#5ff2ff" stroke-width="2.4"/><text x="500.0" y="726.0" font-size="22" text-anchor="middle" fill="#dcecff" font-weight="bold" >Дисплей Ø28 мм</text>
+<path d="M500 664V686" fill="none" stroke="#5ff2ff" stroke-width="2.2" marker-end="url(#ac)" /></svg>
