@@ -121,31 +121,17 @@
       border-radius: 12px;
     }
     /* Дисклеймер «это шутка» / joke disclaimer */
-    .joke-note {
-      background:rgba(255,207,107,.10);border:1px solid rgba(255,207,107,.45);color:#ffe2a6;
-      border-radius: 10px;
-      padding: 7px 12px;
-      margin: 0 0 14px;
-      font: 13px/1.45 Arial, Helvetica, sans-serif;
-    }
-    .joke-note span[lang="en"] { opacity: .85; }
     .joke-foot {
       color:#9fb4d6;
       font: 12.5px/1.5 Arial, Helvetica, sans-serif;
       margin: 18px 0 0;
       padding-right: 56px; /* keep clear of the music button */
     }
-    .joke-near {
-      color:#9fb4d6;
-      font: 12px/1.45 Arial, Helvetica, sans-serif;
-      margin-top: 10px;
-    }
   </style>
 </head>
 
 <body>
 
-<div class="joke-note" role="note"><span aria-hidden="true">😉</span> Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано. <span lang="en">This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
 <div class="planet">🪐</div>
 <h1>Заявка отправлена на Нибиру</h1>
 <p class="item">Прибор / Item: <b id="item-name">jhvhball</b></p>
@@ -161,7 +147,6 @@ Nibiru. Leave your email — you will get a reply to your request in about
 500 years.
 </p>
 
-<div class="joke-near">Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано.<br><span lang="en">This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
 <form id="nibiru-form" novalidate>
   <input type="email" id="email" placeholder="you@example.com" autocomplete="off" aria-label="Email">
   <button type="submit">Отправить / Send</button>
@@ -182,7 +167,7 @@ Only the number of orders is counted here: an anonymous +1, once per browser.
 <p>
 <a id="back-link" href="index.html#crystal">← Вернуться к Шкале Яковлева / Back to the Yakovlev Scale</a>
 </p>
-<div class="joke-foot" role="note">Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано.<br><span lang="en">This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
+<div class="joke-foot" role="note"><b>Примечание / Note.</b> Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано.<br><span lang="en">This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
 
 <script>
   // The email is never sent or stored. The only network request is an
