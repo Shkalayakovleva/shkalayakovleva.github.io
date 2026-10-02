@@ -396,6 +396,27 @@
     @media (max-width: 520px) {
       .legend { columns: 1; }
     }
+    /* Дисклеймер «это шутка» / joke disclaimer */
+    .joke-note {
+      background:#fff8e6;border:1px solid #f0d9a6;color:#5b4a1f;
+      border-radius: 10px;
+      padding: 7px 12px;
+      margin: 0 0 14px;
+      font: 13px/1.45 Arial, Helvetica, sans-serif;
+    }
+    .joke-note span[lang="en"] { opacity: .85; }
+    .joke-foot {
+      color:#6b7280;
+      font: 12.5px/1.5 Arial, Helvetica, sans-serif;
+      margin: 18px 0 0;
+      padding-right: 56px; /* keep clear of the music button */
+    }
+    .joke-near {
+      color:#8fa3c4;
+      font: 12px/1.45 Arial, Helvetica, sans-serif;
+      margin-top: 10px;
+    }
+    body { padding-bottom: 70px; }
   </style>
 </head>
 <body>
@@ -403,6 +424,7 @@
 <div class="journal-bar"><b>International Journal of Xenotechnology</b> <span>· Т. 12, № 3 (2026) · С. 360–377 · Открытый доступ / Open access</span></div>
 
 <article class="paper">
+<div class="joke-note" role="note"><span aria-hidden="true">😉</span> Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано. <span lang="en">This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
 <nav class="crumbs" aria-label="Навигация / Breadcrumbs"><a href="index.html">Шкала Яковлева</a> › <a href="index.html#beacon">Маяк на Нибиру</a> › Научная статья</nav>
 
 <span class="type">Оригинальное исследование · Original research</span>
@@ -656,6 +678,7 @@ the signal there.</p>
   <div>Изготавливается под заказ / Made to order</div>
   <a class="btn" href="nibiru.html?item=beacon">Заказать Маяк / Order</a><br>
   <a class="back" href="index.html#beacon">← Маяк на Нибиру на главной / Back to the Beacon</a>
+  <div class="joke-near" style="color:#9fb4d6">Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано.<br><span lang="en">This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
 </div>
 
 <section class="faq" id="faq" aria-labelledby="faq-h">
@@ -700,8 +723,8 @@ the signal there.</p>
   <li>Яковлев В. Шкала Яковлева: круговая номограмма для третьей стороны треугольника. 2026. URL: <a href="index.html">shkalayakovleva.github.io</a></li>
 </ol>
 
-<p class="fiction">Художественный текст в жанре научной фантастики. Исследователи, издания и патент вымышлены.<br>
-<span lang="en">Science fiction; researchers, journals and patent are fictional.</span></p>
+<div class="fiction" role="note">Художественный текст в жанре научной фантастики. Исследователи, издания и патент вымышлены. Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано.<br>
+<span lang="en">Science fiction; researchers, journals and patent are fictional. This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
 </article>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Рисунок / Figure">
@@ -772,7 +795,7 @@ the signal there.</p>
   if (!window.requestAnimationFrame || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
   var els = Array.prototype.slice.call(document.querySelectorAll(
     '.paper h1, .paper h2, .paper h3, .paper p, .paper li')).filter(function (el) {
-      return !el.closest('figure, table, .order, .meta, .toc');
+      return !el.closest('figure, table, .order, .meta, .toc, .joke-note, .joke-foot, .fiction');
     });
   if (!els.length) return;
   var vis = els;                                   // fallback: all

@@ -401,11 +401,33 @@
         margin: -8px -20px 4px 4px;
       }
     }
+    /* Дисклеймер «это шутка» / joke disclaimer */
+    .joke-note {
+      background:#fff8e6;border:1px solid #f0d9a6;color:#5b4a1f;
+      border-radius: 10px;
+      padding: 7px 12px;
+      margin: 0 0 14px;
+      font: 13px/1.45 Arial, Helvetica, sans-serif;
+    }
+    .joke-note span[lang="en"] { opacity: .85; }
+    .joke-foot {
+      color:#6b7280;
+      font: 12.5px/1.5 Arial, Helvetica, sans-serif;
+      margin: 18px 0 0;
+      padding-right: 56px; /* keep clear of the music button */
+    }
+    .joke-near {
+      color:#8fa3c4;
+      font: 12px/1.45 Arial, Helvetica, sans-serif;
+      margin-top: 10px;
+    }
+    body { padding-bottom: 84px; }
   </style>
 </head>
 
 <body>
 
+<div class="joke-note" role="note"><span aria-hidden="true">😉</span> Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано. <span lang="en">This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
 <h1>Шкала Яковлева</h1>
 <a class="alien-deco" id="alien" href="images/alien/alien-full.jpg?v=1" target="_blank" aria-label="Готовая круговая шпаргалка — открыть целиком / Ready-made circular cheat sheet — open full size">
   <picture>
@@ -756,6 +778,7 @@ Desktop instrument, made to order.
   <div class="crystal-price"><a href="nibiru.html">$500</a></div>
   <a class="buy-btn" href="nibiru.html">Купить / Buy<span class="buy-badge" id="buy-badge" hidden></span></a>
   <div class="buy-count" id="buy-count" hidden></div>
+  <div class="joke-near">Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано.<br><span lang="en">This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
 </div>
 
 <script>
@@ -961,6 +984,7 @@ Made to order.
   <div class="crystal-price"><a href="nibiru.html?item=beacon">$15 000</a></div>
   <a class="buy-btn" href="nibiru.html?item=beacon">Купить / Buy<span class="buy-badge" id="beacon-badge" hidden></span></a>
   <div class="buy-count" id="beacon-count" hidden></div>
+  <div class="joke-near">Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано.<br><span lang="en">This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
 </div>
 
 <script>syOrders('beacon-orders', 'beacon-badge', 'beacon-count');</script>
@@ -1078,6 +1102,7 @@ syCarousel('bc-carousel', 'bc-viewer');
 Yakovlev Scale visual representation: Vladimir Yakovlev.<br>
 2026
 </p>
+<div class="joke-foot" role="note">Это шутка — воспринимать всерьёз не стоит. Данные нигде не хранятся, почта никуда не уходит, всё выдумано.<br><span lang="en">This is a joke — don't take it seriously. No data is stored anywhere, no email is sent, everything is made up.</span></div>
 
 <button type="button" class="bg-music" id="bg-music" aria-pressed="false" aria-label="Включить музыку / Play music" hidden>🔇</button>
 <audio id="bg-audio" src="media/space-ambient.mp3" loop preload="none"></audio>
