@@ -1,0 +1,52 @@
+/* Калькуляторы и общие блоки для страниц Шкалы Яковлева */
+.calc {
+  background: #f6f8fc;
+  border: 1px solid #d5deec;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin: 20px 0;
+}
+.calc h3 { margin: 0 0 10px; font-size: 19px; }
+.calc .row { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: flex-end; }
+.calc label { display: flex; flex-direction: column; font-size: 14px; color: #374151; gap: 4px; }
+.calc input, .calc select {
+  font: 18px Arial, sans-serif;
+  width: 130px;
+  padding: 8px 10px;
+  border: 1px solid #b8c4d8;
+  border-radius: 8px;
+  background: #fff;
+  box-sizing: border-box;
+}
+.calc select { width: auto; }
+.calc input:focus, .calc select:focus { outline: 2px solid #0ea5c6; border-color: #0ea5c6; }
+.calc .out {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fff;
+  border-left: 4px solid #0ea5c6;
+  font-size: 17px;
+  min-height: 1.6em;
+}
+.calc .out b { font-size: 21px; }
+.calc .out .muted, .calc .hint { color: #6b7280; font-size: 14px; }
+.calc .err { color: #b91c1c; }
+table.tbl { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 16px; }
+table.tbl th, table.tbl td { border: 1px solid #d5deec; padding: 6px 8px; text-align: center; }
+table.tbl th { background: #eef3fb; }
+table.tbl caption { caption-side: top; text-align: left; font-weight: bold; padding-bottom: 6px; }
+.tbl-wrap { overflow-x: auto; }
+.crumbs { font-size: 14px; color: #6b7280; margin-bottom: 6px; }
+.crumbs a, .site-nav a { color: #0b7894; }
+.site-nav {
+  display: flex; flex-wrap: wrap; gap: 8px 14px;
+  font-size: 15px; margin: 18px 0; padding: 10px 14px;
+  background: #eef3fb; border-radius: 10px;
+}
+.faq dt { font-weight: bold; margin-top: 14px; }
+.faq dd { margin: 4px 0 0; }
+@media (max-width: 600px) {
+  .calc input { width: 120px; }
+  table.tbl { font-size: 14px; }
+}

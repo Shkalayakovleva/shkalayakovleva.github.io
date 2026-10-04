@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Шкала Яковлева — сторона треугольника по углу, шпаргалка</title>
-  <meta name="description" content="Круговая шпаргалка: третья сторона треугольника по углу и двум сторонам без калькулятора. Прямой угол, скорость расхождения, замедление времени.">
+  <title>Шкала Яковлева — третья сторона треугольника по углу: калькулятор и шпаргалка</title>
+  <meta name="description" content="Как найти сторону треугольника по углу: формула c = 2a·sin(α/2), калькулятор (сторона по углу и угол по трём сторонам), круговые шпаргалки, хорды, прямой угол, замедление времени.">
 
-  <meta name="keywords" content="Шкала Яковлева, Yakovlev Scale, сторона треугольника по углу, третья сторона треугольника, треугольник, номограмма, шпаргалка, прямоугольный треугольник, хорда, скорость расхождения, замедление времени, triangle, nomogram, cheat sheet, time dilation">
+  <meta name="keywords" content="Шкала Яковлева, Yakovlev Scale, сторона треугольника по углу, третья сторона треугольника, основание равнобедренного треугольника, длина хорды, угол по трём сторонам, треугольник, номограмма, шпаргалка, прямоугольный треугольник, хорда, скорость расхождения, замедление времени, triangle, nomogram, cheat sheet, time dilation">
   <link rel="canonical" href="https://shkalayakovleva.github.io/">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="Владимир Яковлев">
@@ -20,7 +20,7 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Шкала Яковлева — Yakovlev Scale">
-  <meta property="og:title" content="Шкала Яковлева — сторона треугольника по углу без калькулятора">
+  <meta property="og:title" content="Шкала Яковлева — третья сторона треугольника по углу: шпаргалка и калькулятор">
   <meta property="og:description" content="Круговая шпаргалка: угол → третья сторона треугольника. Прямой угол, расхождение, замедление времени и приборы для Нибиру. RU / EN.">
   <meta property="og:url" content="https://shkalayakovleva.github.io/">
   <meta property="og:image" content="https://shkalayakovleva.github.io/images/og-card.jpg">
@@ -33,7 +33,7 @@
   <meta property="og:locale:alternate" content="en_US">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Шкала Яковлева — сторона треугольника по углу без калькулятора">
+  <meta name="twitter:title" content="Шкала Яковлева — третья сторона треугольника по углу: шпаргалка и калькулятор">
   <meta name="twitter:description" content="Круговая шпаргалка: угол → третья сторона треугольника. Yakovlev Scale: a circular cheat sheet for triangles.">
   <meta name="twitter:image" content="https://shkalayakovleva.github.io/images/og-card.jpg">
   <meta name="twitter:image:alt" content="Шкала Яковлева — Yakovlev Scale">
@@ -52,7 +52,7 @@
     "ru",
     "en"
    ],
-   "description": "Круговая шпаргалка: третья сторона треугольника по углу и двум сторонам без калькулятора. Прямой угол, скорость расхождения, замедление времени.",
+   "description": "Как найти сторону треугольника по углу: формула c = 2a·sin(α/2), калькулятор (сторона по углу и угол по трём сторонам), круговые шпаргалки, хорды, прямой угол, замедление времени.",
    "author": {
     "@id": "https://shkalayakovleva.github.io/#author"
    }
@@ -89,7 +89,65 @@
    "isPartOf": {
     "@id": "https://shkalayakovleva.github.io/#website"
    },
-   "datePublished": "2026"
+   "datePublished": "2026",
+   "hasPart": [
+    {
+     "@id": "https://shkalayakovleva.github.io/storona-po-uglu/#page"
+    },
+    {
+     "@id": "https://shkalayakovleva.github.io/hordy/#page"
+    },
+    {
+     "@id": "https://shkalayakovleva.github.io/zamedlenie-vremeni/#page"
+    }
+   ],
+   "dateModified": "2026-10-04"
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://shkalayakovleva.github.io/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Как найти третью сторону по углу между равными сторонами?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "По формуле длины хорды: c = 2a·sin(α/2), где a — каждая из равных сторон, α — угол между ними. Например, две стороны по 5 см под углом 90°: c = 10·sin 45° ≈ 7,07 см."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как пользоваться Шкалой Яковлева?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Найдите на шкале множитель k = sin(γ/2) напротив угла между сторонами, сложите стороны и умножьте сумму на k: c = (a + b)·k. При угле 120° k = 0,866."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Насколько точна шкала, если стороны разные?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Для равных сторон результат точный. Для разных сторон (a + b)·sin(γ/2) немного занижает ответ: стороны 3 и 4 под 90° дают 4,95 вместо 5 (около 1%). Точный ответ даёт теорема косинусов c = √(a² + b² − 2ab·cos γ)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как найти угол, если известны три стороны?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "cos γ = (a² + b² − c²) / (2ab), затем γ = arccos(...). Для двух равных сторон a и третьей c: γ = 2·arcsin(c / 2a). Стороны 3, 4, 5 дают 90°."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Чем готовая круговая шпаргалка отличается от цветной шкалы?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Цветная шкала даёт множитель k, который нужно умножить на сумму сторон. Готовая шпаргалка сразу даёт длину третьей стороны для суммы сторон, написанной на кольце (1–10 см)."
+     }
+    }
+   ]
   }
  ]
 }
@@ -103,7 +161,8 @@
       padding: 20px;
       line-height: 1.6;
     }
-    h1 { font-size: 38px; }
+    h1 { font-size: 38px; line-height: 1.2; }
+    h1 .h1-sub { display: block; margin-top: 6px; font-size: 22px; font-weight: normal; color: #374151; }
     img {
       width: 100%;
       height: auto;
@@ -410,11 +469,12 @@
     }
     body { padding-bottom: 84px; }
   </style>
+  <link rel="stylesheet" href="/assets/calc.css?v=1">
 </head>
 
 <body>
 
-<h1>Шкала Яковлева</h1>
+<h1>Шкала Яковлева <span class="h1-sub">— третья сторона треугольника по углу</span></h1>
 <a class="alien-deco" id="alien" href="images/alien/alien-full.jpg?v=1" target="_blank" aria-label="Готовая круговая шпаргалка — открыть целиком / Ready-made circular cheat sheet — open full size">
   <picture>
     <source srcset="images/alien/alien-deco.webp?v=1" type="image/webp">
@@ -457,9 +517,44 @@ ready-made table for estimating the third side without sines or roots.
 
 <div class="formula">c = (a + b) × k,&nbsp;&nbsp; k = sin(γ / 2)</div>
 
-<h2>1. Шкала Яковлева / Yakovlev Scale</h2>
+<h2 id="calculator">Калькулятор: сторона по углу и угол по сторонам</h2>
 
-<img src="images/yakovlev-scale.png"
+<p>
+Для двух равных сторон a и угла α между ними третья сторона
+<b>c = 2a · sin(α/2)</b> — это формула длины хорды. Если стороны разные,
+калькулятор считает точно по теореме косинусов и показывает, насколько
+отличается быстрая оценка по шкале. Обратная задача — угол по трём сторонам.
+</p>
+
+<form class="calc" id="calc-side" autocomplete="off">
+  <h3>Третья сторона по двум сторонам и углу</h3>
+  <div class="row">
+    <label>Сторона a<input name="a" inputmode="decimal" value="5"></label>
+    <label>Сторона b <span class="hint">(пусто = a)</span><input name="b" inputmode="decimal" placeholder="= a"></label>
+    <label>Угол между ними, °<input name="g" inputmode="decimal" value="90"></label>
+  </div>
+  <div class="out" aria-live="polite"></div>
+</form>
+
+<form class="calc" id="calc-angle" autocomplete="off">
+  <h3>Угол между сторонами по трём сторонам</h3>
+  <div class="row">
+    <label>Сторона a<input name="a" inputmode="decimal" value="3"></label>
+    <label>Сторона b <span class="hint">(пусто = a)</span><input name="b" inputmode="decimal" value="4"></label>
+    <label>Третья сторона c<input name="c" inputmode="decimal" value="5"></label>
+  </div>
+  <div class="out" aria-live="polite"></div>
+</form>
+
+<nav class="site-nav" aria-label="Подробные страницы">
+  <a href="/storona-po-uglu/">Как найти третью сторону треугольника по углу</a>
+  <a href="/hordy/">Длина хорды и разметка угла без транспортира</a>
+  <a href="/zamedlenie-vremeni/">Замедление времени: формула и калькулятор</a>
+</nav>
+
+<h2 id="scale">1. Шкала Яковлева: множитель для третьей стороны по углу / Yakovlev Scale</h2>
+
+<img src="images/yakovlev-scale.png" width="2200" height="2240" decoding="async"
      alt="Шкала Яковлева: круговая номограмма — третья сторона треугольника по углу / Yakovlev Scale: circular nomogram for the third side of a triangle">
 
 <p>
@@ -491,9 +586,9 @@ Exact when a = b. For unequal sides the scale gives a slightly low estimate
 c = (5 + 5) × 0,707 ≈ 7,07.
 </p>
 
-<h2>2. Готовая круговая шпаргалка / Ready-made cheat sheet</h2>
+<h2 id="cheatsheet">2. Готовая круговая шпаргалка: третья сторона без вычислений / Ready-made cheat sheet</h2>
 
-<img src="images/cheatsheet-ready.png"
+<img src="images/cheatsheet-ready.png" width="2600" height="3530" loading="lazy" decoding="async"
      alt="Готовая круговая шпаргалка: сторона треугольника по углу без вычислений / Ready-made circular cheat sheet: triangle side from the angle">
 
 <p>
@@ -507,7 +602,8 @@ c = (5 + 5) × 0,707 ≈ 7,07.
 инструкция и пример.
 Шпаргалка точна для равнобедренных треугольников и удобна, когда нужно
 быстро найти хорду, раствор циркуля или расстояние между концами двух
-одинаковых планок под заданным углом.
+одинаковых планок под заданным углом. Таблица хорд для разметки угла рулеткой —
+на странице <a href="/hordy/">«Длина хорды и разметка угла без транспортира»</a>.
 </p>
 
 <p>
@@ -518,7 +614,7 @@ The left half (180°–360°) mirrors the right one; a short legend with an
 example is printed at the bottom of the sheet.
 </p>
 
-<h2>Как читать / How to read</h2>
+<h2 id="how-to-read">Как читать шкалу и шпаргалку / How to read</h2>
 
 <p>
 Две картинки читаются по-разному, не путайте их.
@@ -567,7 +663,7 @@ The formula is exact only when a = b; for unequal sides it slightly
 underestimates.
 </p>
 
-<h2>3. Прямой угол / Right angle</h2>
+<h2 id="right-angle">3. Прямой угол: углы и стороны прямоугольного треугольника / Right angle</h2>
 
 <p>
 Две картинки для любого прямоугольного треугольника: по двум известным
@@ -575,8 +671,8 @@ underestimates.
 результат точен в пределах точности чтения шкалы.
 </p>
 
-<img src="images/yakovlev-right-angle.png"
-     alt="Шкала Яковлева — прямой угол — Yakovlev Scale, right angle">
+<img src="images/yakovlev-right-angle.png" width="2200" height="2750" loading="lazy" decoding="async"
+     alt="Номограмма «Прямой угол»: острые углы и третья сторона прямоугольного треугольника по двум катетам или катету и гипотенузе / Right-angle nomogram">
 
 <p>
 <b>Цветная номограмма.</b> Разделите меньшую сторону на большую:
@@ -587,8 +683,8 @@ r = меньшая / большая (от 0 до 1), найдите r на вн�
 ячейки (① √(1 + r²) — гипотенуза, ② √(1 − r²) — второй катет).
 </p>
 
-<img src="images/yakovlev-right-angle-ready.png"
-     alt="Готовая круговая шпаргалка — прямой угол — Ready cheat sheet, right angle">
+<img src="images/yakovlev-right-angle-ready.png" width="2600" height="3560" loading="lazy" decoding="async"
+     alt="Готовая шпаргалка «Прямой угол»: меньшая сторона и угол прямоугольного треугольника при большей стороне 1–10 см / Ready right-angle cheat sheet">
 
 <p>
 <b>Готовая шпаргалка.</b> Кольца — большая сторона 1–10 см, числа — готовая
@@ -622,10 +718,10 @@ legs (0–45°), left half = leg and hypotenuse (0–90°). For a larger side ov
 ≈ 13.15. Hypotenuse 13 and leg 2: α ≈ 8.8°, β ≈ 81.2°, other leg ≈ 12.85.
 </p>
 
-<h2>4. Расхождение / Divergence (скорость и время)</h2>
+<h2 id="divergence">4. Скорость расхождения двух объектов под углом / Divergence</h2>
 
-<img src="images/cheatsheet-divergence.png"
-     alt="Шпаргалка на расхождение — Divergence cheat sheet">
+<img src="images/cheatsheet-divergence.png" width="2600" height="3520" loading="lazy" decoding="async"
+     alt="Шпаргалка «Расхождение»: скорость расхождения двух объектов по скорости 10–100 км/ч и углу между курсами / Divergence cheat sheet">
 
 <p>
 Два объекта выходят из одной точки с одинаковой скоростью v, угол между их
@@ -646,6 +742,8 @@ u = √(v₁² + v₂² − 2·v₁·v₂·cos γ), а кольцо по сре�
 даёт немного заниженный результат (40 и 80 км/ч под 90°: точно 89,4,
 по шпаргалке 84,9). Подходит для кораблей, машин, самолётов и пешеходов.
 Это та же формула, что у Шкалы Яковлева: u = (v + v) · sin(γ/2).
+Калькулятор для любых скоростей — на странице
+<a href="/zamedlenie-vremeni/#calc-diverge">«Замедление времени»</a>.
 </p>
 
 <p>
@@ -659,10 +757,10 @@ ring for the average speed slightly underestimates. Works for ships, cars,
 planes and walkers — the same maths as the main scale.
 </p>
 
-<h2>5. Замедление времени / Time dilation</h2>
+<h2 id="time-dilation">5. Замедление времени: формула и шпаргалка / Time dilation</h2>
 
-<img src="images/cheatsheet-time-dilation.png"
-     alt="Шпаргалка: замедление времени — Time dilation cheat sheet">
+<img src="images/cheatsheet-time-dilation.png" width="2600" height="3545" loading="lazy" decoding="async"
+     alt="Шпаргалка «Замедление времени»: отставание часов за сутки и за год при скоростях от 5 км/ч до 0,999 c / Time dilation cheat sheet">
 
 <p>
 Сколько отстают движущиеся часы (специальная теория относительности, только
@@ -711,6 +809,20 @@ multiplier = clock rate (0.5c → 30°, 0.866; 0.9c → 64.2°, 0.436;
 relativistically, so the divergence sheet is valid only for u ≪ c.
 </p>
 
+<h2 id="faq">Частые вопросы</h2>
+<dl class="faq">
+  <dt>Как найти третью сторону по углу между равными сторонами?</dt>
+  <dd>По формуле длины хорды: c = 2a·sin(α/2), где a — каждая из равных сторон, α — угол между ними. Например, две стороны по 5 см под углом 90°: c = 10·sin 45° ≈ 7,07 см.</dd>
+  <dt>Как пользоваться Шкалой Яковлева?</dt>
+  <dd>Найдите на шкале множитель k = sin(γ/2) напротив угла между сторонами, сложите стороны и умножьте сумму на k: c = (a + b)·k. При угле 120° k = 0,866.</dd>
+  <dt>Насколько точна шкала, если стороны разные?</dt>
+  <dd>Для равных сторон результат точный. Для разных сторон (a + b)·sin(γ/2) немного занижает ответ: стороны 3 и 4 под 90° дают 4,95 вместо 5 (около 1%). Точный ответ даёт теорема косинусов c = √(a² + b² − 2ab·cos γ).</dd>
+  <dt>Как найти угол, если известны три стороны?</dt>
+  <dd>cos γ = (a² + b² − c²) / (2ab), затем γ = arccos(...). Для двух равных сторон a и третьей c: γ = 2·arcsin(c / 2a). Стороны 3, 4, 5 дают 90°.</dd>
+  <dt>Чем готовая круговая шпаргалка отличается от цветной шкалы?</dt>
+  <dd>Цветная шкала даёт множитель k, который нужно умножить на сумму сторон. Готовая шпаргалка сразу даёт длину третьей стороны для суммы сторон, написанной на кольце (1–10 см).</dd>
+</dl>
+
 <h2 id="crystal">jhvhball</h2>
 
 <div class="cr-carousel" id="cr-carousel">
@@ -722,7 +834,7 @@ relativistically, so the divergence sheet is valid only for u ≪ c.
         Ваш браузер не поддерживает видео. / Your browser does not support video.
       </video>
     </div>
-    <a class="cr-slide" href="images/crystal/crystal-device-black.jpg" target="_blank"><img src="images/crystal/crystal-device-black.jpg" alt="Общий вид / Hero view" loading="lazy" decoding="async" width="1200" height="1200"></a>
+    <a class="cr-slide" href="images/crystal/crystal-device-black.jpg" target="_blank"><img src="images/crystal/crystal-device-black.jpg" alt="Хрустальный шар jhvhball с гравированными шкалами на подставке — общий вид / Hero view" loading="lazy" decoding="async" width="1200" height="1200"></a>
     <a class="cr-slide" href="images/crystal/crystal-closeup.jpg" target="_blank"><img src="images/crystal/crystal-closeup.jpg" alt="Крупный план шара со светящимся слоем / Close-up of the sphere with a lit layer" loading="lazy" decoding="async" width="1200" height="1200"></a>
     <a class="cr-slide" href="images/crystal/crystal-top.jpg" target="_blank"><img src="images/crystal/crystal-top.jpg" alt="Вид сверху: гравированные диски внутри шара / Top view: engraved discs inside the sphere" loading="lazy" decoding="async" width="1200" height="1200"></a>
     <a class="cr-slide" href="images/crystal/crystal-low.jpg" target="_blank"><img src="images/crystal/crystal-low.jpg" alt="Вид снизу сбоку / Low side view" loading="lazy" decoding="async" width="1200" height="1200"></a>
@@ -1074,6 +1186,7 @@ Made to order.
 })();
 </script>
 
+<script src="/assets/calc.js?v=1" defer></script>
 <script>
 syCarousel('cr-carousel', 'cr-viewer');
 syCarousel('bc-carousel', 'bc-viewer');

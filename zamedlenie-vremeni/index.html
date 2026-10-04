@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Замедление времени: формула и калькулятор — насколько отстают часы</title>
+  <meta name="description" content="Формула замедления времени t₀ = t·√(1 − v²/c²): калькулятор отставания часов за сутки и год, таблица для автомобиля, самолёта, МКС, GPS, скорость расхождения под углом.">
+  <link rel="canonical" href="https://shkalayakovleva.github.io/zamedlenie-vremeni/">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Владимир Яковлев">
+  <meta name="theme-color" content="#03050b">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Шкала Яковлева — Yakovlev Scale">
+  <meta property="og:title" content="Замедление времени: формула и калькулятор">
+  <meta property="og:description" content="Формула замедления времени t₀ = t·√(1 − v²/c²): калькулятор отставания часов за сутки и год, таблица для автомобиля, самолёта, МКС, GPS, скорость расхождения под углом.">
+  <meta property="og:url" content="https://shkalayakovleva.github.io/zamedlenie-vremeni/">
+  <meta property="og:image" content="https://shkalayakovleva.github.io/images/og-card.jpg">
+  <meta property="og:image:alt" content="Замедление времени — Шкала Яковлева">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Замедление времени: формула и калькулятор">
+  <meta name="twitter:description" content="Формула замедления времени t₀ = t·√(1 − v²/c²): калькулятор отставания часов за сутки и год, таблица для автомобиля, самолёта, МКС, GPS, скорость расхождения под углом.">
+  <meta name="twitter:image" content="https://shkalayakovleva.github.io/images/og-card.jpg">
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebPage",
+   "@id": "https://shkalayakovleva.github.io/zamedlenie-vremeni/#page",
+   "url": "https://shkalayakovleva.github.io/zamedlenie-vremeni/",
+   "name": "Замедление времени: формула и калькулятор — насколько отстают часы",
+   "description": "Формула замедления времени t₀ = t·√(1 − v²/c²): калькулятор отставания часов за сутки и год, таблица для автомобиля, самолёта, МКС, GPS, скорость расхождения под углом.",
+   "inLanguage": "ru",
+   "isPartOf": {
+    "@id": "https://shkalayakovleva.github.io/#website"
+   },
+   "author": {
+    "@id": "https://shkalayakovleva.github.io/#author"
+   },
+   "breadcrumb": {
+    "@id": "https://shkalayakovleva.github.io/zamedlenie-vremeni/#breadcrumb"
+   },
+   "primaryImageOfPage": "https://shkalayakovleva.github.io/images/og-card.jpg",
+   "dateModified": "2026-10-04"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://shkalayakovleva.github.io/zamedlenie-vremeni/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Шкала Яковлева",
+     "item": "https://shkalayakovleva.github.io/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Замедление времени",
+     "item": "https://shkalayakovleva.github.io/zamedlenie-vremeni/"
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://shkalayakovleva.github.io/zamedlenie-vremeni/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Какая формула замедления времени?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "t₀ = t·√(1 − v²/c²): за время t движущиеся часы покажут t₀. Доля отставания 1 − √(1 − v²/c²), при малых скоростях ≈ v²/(2c²)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Насколько отстают часы космонавтов на МКС?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Из-за скорости 7,66 км/с — примерно на 28 мкс в сутки, около 10 мс за год (без учёта гравитации, которая немного уменьшает эффект)."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Почему часы на спутниках GPS спешат, а не отстают?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Скорость замедляет их на ≈ 7,2 мкс/сутки, а более слабая гравитация на орбите ускоряет на ≈ 45,7 мкс/сутки; итог ≈ +38 мкс/сутки."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Как найти скорость расхождения двух объектов под углом?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "u = √(v₁² + v₂² − 2v₁v₂·cos γ); при равных скоростях u = 2v·sin(γ/2). 60 км/ч под 90° дают 84,9 км/ч."
+     }
+    }
+   ]
+  }
+ ]
+}
+  </script>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+    h1 { font-size: 34px; line-height: 1.25; }
+    img { width: 100%; height: auto; }
+    .formula { font-size: 24px; font-weight: bold; text-align: center; background: #fdf3e3;
+      border: 1px solid #e8c98f; border-radius: 10px; padding: 14px; margin: 24px 0; }
+    .note { background: #eef3fb; border-radius: 10px; padding: 12px 16px; }
+    @media (max-width: 600px) { body { margin: 16px auto; } h1 { font-size: 27px; } .formula { font-size: 20px; } }
+  </style>
+  <link rel="stylesheet" href="/assets/calc.css?v=1">
+</head>
+<body>
+
+<nav class="crumbs" aria-label="Навигация"><a href="/">Шкала Яковлева</a> › Замедление времени</nav>
+<h1>Замедление времени: формула и калькулятор</h1>
+
+<p>
+Движущиеся часы идут медленнее неподвижных — это эффект специальной теории
+относительности. В быту он ничтожен, но для спутников GPS его приходится
+учитывать каждый день. Ниже — формула, калькулятор «насколько отстанут часы»,
+таблица для привычных скоростей и калькулятор скорости расхождения двух объектов,
+которую удобно подставлять в формулу.
+</p>
+
+<h2>Формула замедления времени</h2>
+
+<div class="formula">t₀ = t · √(1 − v²/c²) &nbsp;·&nbsp; γ = 1 / √(1 − v²/c²)</div>
+
+<p>
+За время t по неподвижным часам движущиеся часы покажут t₀ = t/γ, где v —
+скорость, c ≈ 299 792 км/с — скорость света, γ — лоренц-фактор. Доля
+отставания <b>Δt/t = 1 − √(1 − v²/c²)</b>, а при скоростях много меньше
+световой — примерно <b>v² / (2c²)</b>: вдвое большая скорость даёт вчетверо
+большее отставание.
+</p>
+
+<p>
+Геометрически это прямоугольный треугольник: если sin θ = v/c, то ход часов
+равен cos θ. Поэтому замедление времени читается и по шпаргалке
+<a href="/#right-angle">«Прямой угол»</a> (кольцо «Катет и гипотенуза»):
+0,5c → θ = 30°, часы идут со скоростью 0,866; 0,9c → 64,2°, 0,436.
+</p>
+
+<form class="calc" id="calc-dilation" autocomplete="off">
+  <h3>Калькулятор: насколько отстают движущиеся часы</h3>
+  <div class="row">
+    <label>Скорость v<input name="v" inputmode="decimal" value="7,66"></label>
+    <label>Единицы<select name="unit">
+      <option value="kmh">км/ч</option>
+      <option value="ms">м/с</option>
+      <option value="kms" selected>км/с</option>
+      <option value="c">доля c</option>
+    </select></label>
+  </div>
+  <div class="out" aria-live="polite"></div>
+</form>
+
+<h2>Таблица: отставание часов при разных скоростях</h2>
+
+<div class="tbl-wrap">
+<table class="tbl">
+  <caption>Только эффект скорости (СТО), без гравитации</caption>
+  <thead><tr><th>Скорость</th><th>Δt/t</th><th>за сутки</th><th>за год</th><th>γ</th></tr></thead>
+  <tbody>
+    <tr><td>Пешеход, 5 км/ч</td><td>1,07·10<sup>-17</sup></td><td>0 нс</td><td>0,34 нс</td><td>≈ 1</td></tr>
+    <tr><td>Автомобиль, 100 км/ч</td><td>4,29·10<sup>-15</sup></td><td>0,37 нс</td><td>135,47 нс</td><td>≈ 1</td></tr>
+    <tr><td>Самолёт, 900 км/ч</td><td>3,48·10<sup>-13</sup></td><td>30,04 нс</td><td>11 мкс</td><td>≈ 1</td></tr>
+    <tr><td>Спутник GPS, 3,87 км/с</td><td>8,33·10<sup>-11</sup></td><td>7,2 мкс</td><td>2,6 мс</td><td>≈ 1</td></tr>
+    <tr><td>МКС, 7,66 км/с</td><td>3,26·10<sup>-10</sup></td><td>28,2 мкс</td><td>10,3 мс</td><td>≈ 1</td></tr>
+    <tr><td>Земля вокруг Солнца, 30 км/с</td><td>5,01·10<sup>-9</sup></td><td>432,6 мкс</td><td>158 мс</td><td>≈ 1</td></tr>
+    <tr><td>0,1 c</td><td>5,01·10<sup>-3</sup></td><td>433 с</td><td>1,8 сут</td><td>1,005</td></tr>
+    <tr><td>0,5 c</td><td>0,134</td><td>11575 с</td><td>48,9 сут</td><td>1,155</td></tr>
+    <tr><td>0,9 c</td><td>0,564</td><td>48739 с</td><td>206 сут</td><td>2,294</td></tr>
+    <tr><td>0,99 c</td><td>0,859</td><td>74212 с</td><td>313,7 сут</td><td>7,089</td></tr>
+  </tbody>
+</table>
+</div>
+
+<p class="note">
+<b>Пример: GPS.</b> Спутник летит со скоростью около 3,87 км/с, и только из-за
+скорости его часы отстают примерно на 7,2 мкс в сутки. Но на высоте 20 000 км
+слабее гравитация, и по общей теории относительности часы спешат на ≈ 45,7 мкс
+в сутки. Итог ≈ +38 мкс в сутки — без поправки ошибка координат росла бы на
+километры в день.
+</p>
+
+<h2>Скорость расхождения двух объектов под углом</h2>
+
+<p>
+Если два объекта выходят из одной точки со скоростями v₁ и v₂ и угол между
+курсами γ, они удаляются друг от друга со скоростью
+<b>u = √(v₁² + v₂² − 2v₁v₂·cos γ)</b>, а при равных скоростях
+<b>u = 2v · sin(γ/2)</b> — та же формула хорды, что у
+<a href="/">Шкалы Яковлева</a>. Расстояние через время t: d = u · t.
+</p>
+
+<form class="calc" id="calc-diverge" autocomplete="off">
+  <h3>Калькулятор скорости расхождения</h3>
+  <div class="row">
+    <label>Скорость v₁<input name="v1" inputmode="decimal" value="60"></label>
+    <label>Скорость v₂ <span class="hint">(пусто = v₁)</span><input name="v2" inputmode="decimal" placeholder="= v₁"></label>
+    <label>Угол между курсами, °<input name="g" inputmode="decimal" value="90"></label>
+    <label>Время, ч<input name="t" inputmode="decimal" value="2"></label>
+  </div>
+  <div class="out" aria-live="polite"></div>
+</form>
+
+<p><b>Пример.</b> Две машины по 60 км/ч под углом 90°: u ≈ 84,9 км/ч, через 2 часа
+между ними ≈ 170 км. Их взаимное замедление времени — около 0,1 мкс в год.</p>
+
+<img src="/images/cheatsheet-time-dilation.png" width="2600" height="3545" loading="lazy" decoding="async"
+     alt="Шпаргалка «Замедление времени»: отставание часов за сутки и за год при скоростях от 5 км/ч до 0,999 скорости света">
+
+<img src="/images/cheatsheet-divergence.png" width="2600" height="3520" loading="lazy" decoding="async"
+     alt="Круговая шпаргалка «Расхождение»: скорость расхождения двух объектов по скорости 10–100 км/ч и углу между курсами">
+
+<h2 id="faq">Частые вопросы</h2>
+<dl class="faq">
+  <dt>Какая формула замедления времени?</dt>
+  <dd>t₀ = t·√(1 − v²/c²): за время t движущиеся часы покажут t₀. Доля отставания 1 − √(1 − v²/c²), при малых скоростях ≈ v²/(2c²).</dd>
+  <dt>Насколько отстают часы космонавтов на МКС?</dt>
+  <dd>Из-за скорости 7,66 км/с — примерно на 28 мкс в сутки, около 10 мс за год (без учёта гравитации, которая немного уменьшает эффект).</dd>
+  <dt>Почему часы на спутниках GPS спешат, а не отстают?</dt>
+  <dd>Скорость замедляет их на ≈ 7,2 мкс/сутки, а более слабая гравитация на орбите ускоряет на ≈ 45,7 мкс/сутки; итог ≈ +38 мкс/сутки.</dd>
+  <dt>Как найти скорость расхождения двух объектов под углом?</dt>
+  <dd>u = √(v₁² + v₂² − 2v₁v₂·cos γ); при равных скоростях u = 2v·sin(γ/2). 60 км/ч под 90° дают 84,9 км/ч.</dd>
+</dl>
+
+<nav class="site-nav" aria-label="Разделы сайта">
+  <a href="/">Шкала Яковлева</a>
+  <a href="/storona-po-uglu/">Сторона по углу</a>
+  <a href="/hordy/">Хорды и разметка угла</a>
+  <a href="/zamedlenie-vremeni/" aria-current="page">Замедление времени</a>
+</nav>
+
+<hr>
+<p>Автор визуального представления: Владимир Яковлев, 2026. Все расчёты выполняются в вашем браузере.</p>
+
+<script src="/assets/calc.js?v=1" defer></script>
+<script>
+/* Счётчик заходов (скрытый): +1 за визит (сессию), +1 за нового посетителя (браузер) */
+(function(){try{var A='https://abacus.jasoncameron.dev/hit/shkalayakovleva/';
+if(!sessionStorage.getItem('sy_v')){sessionStorage.setItem('sy_v','1');fetch(A+'site-visits').catch(function(){});}
+if(!localStorage.getItem('sy_u')){localStorage.setItem('sy_u','1');fetch(A+'site-uniques').catch(function(){});}}catch(e){}})();
+</script>
+</body>
+</html>
