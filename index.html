@@ -319,68 +319,7 @@
       line-height: 1;
       cursor: pointer;
     }
-    .crystal-buy {
-      text-align: center;
-      background: #0b0e14;
-      color: #e6f7ff;
-      border-radius: 14px;
-      padding: 22px 16px;
-      margin: 24px 0;
-    }
-    .crystal-price {
-      font-size: 34px;
-      font-weight: bold;
-      color: #5ff2ff;
-      margin-bottom: 12px;
-    }
-    .crystal-price a {
-      color: inherit;
-      text-decoration: none;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: text-shadow .2s;
-    }
-    .crystal-price a:hover, .crystal-price a:focus-visible {
-      text-shadow: 0 0 12px rgba(95, 242, 255, .8), 0 0 26px rgba(155, 92, 255, .5);
-    }
-    .buy-btn {
-      display: inline-block;
-      padding: 14px 42px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #04121a;
-      text-decoration: none;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #22e6ff, #9b5cff);
-      box-shadow: 0 0 18px rgba(34, 230, 255, .55), 0 0 36px rgba(155, 92, 255, .35);
-      transition: transform .15s, box-shadow .15s;
-    }
-    .buy-btn { position: relative; }
-    .buy-badge {
-      position: absolute;
-      top: -9px; right: -9px;
-      min-width: 26px;
-      height: 26px;
-      padding: 0 7px;
-      box-sizing: border-box;
-      border-radius: 999px;
-      background: #ff3b6b;
-      color: #fff;
-      font-size: 14px;
-      line-height: 26px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(255, 59, 107, .7);
-    }
-    .buy-count {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #9fb4d6;
-    }
     [hidden] { display: none !important; }
-    .buy-btn:hover, .buy-btn:focus {
-      transform: translateY(-2px) scale(1.03);
-      box-shadow: 0 0 26px rgba(34, 230, 255, .8), 0 0 50px rgba(155, 92, 255, .5);
-    }
     .paper-link { margin: 4px 0 18px; }
     .paper-link a {
       display: inline-block;
@@ -872,44 +811,6 @@ Read the answer on the lit scale, just like on the paper cheat sheet.
 Desktop instrument, made to order.
 </p>
 
-<div class="crystal-buy">
-  <div class="crystal-price"><a href="nibiru.html">$500</a></div>
-  <a class="buy-btn" href="nibiru.html">Купить / Buy<span class="buy-badge" id="buy-badge" hidden></span></a>
-  <div class="buy-count" id="buy-count" hidden></div>
-</div>
-
-<script>
-// Order counters: only read public anonymous numbers, nothing is sent.
-(function () {
-  function ruOrders(n) {
-    var a = n % 10, b = n % 100;
-    if (a === 1 && b !== 11) return 'заказ';
-    if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return 'заказа';
-    return 'заказов';
-  }
-  if (!window.fetch) return;
-  function orders(key, badgeId, lineId) {
-    var ctrl = window.AbortController ? new AbortController() : null;
-    if (ctrl) setTimeout(function () { ctrl.abort(); }, 6000);
-    fetch('https://abacus.jasoncameron.dev/get/shkalayakovleva/' + key,
-          { cache: 'no-store', referrerPolicy: 'no-referrer', signal: ctrl ? ctrl.signal : undefined })
-      .then(function (r) { if (!r.ok) throw 0; return r.json(); })
-      .then(function (d) {
-        var n = parseInt(d && d.value, 10);
-        if (!(n >= 0)) return;
-        var badge = document.getElementById(badgeId);
-        var line = document.getElementById(lineId);
-        if (!badge || !line) return;
-        line.textContent = n + ' ' + ruOrders(n) + ' / ' + n + (n === 1 ? ' order' : ' orders');
-        line.hidden = false;
-        if (n > 0) { badge.textContent = n; badge.hidden = false; }
-      })
-      .catch(function () {});
-  }
-  window.syOrders = orders;
-})();
-syOrders('jhvhball-orders', 'buy-badge', 'buy-count');
-</script>
 
 <div class="cr-viewer" id="cr-viewer" role="dialog" aria-modal="true" aria-label="jhvhball">
   <div class="cr-track"></div>
@@ -1076,14 +977,6 @@ signal will be read, your clone will be made, and after death you will live on N
 Изготавливается под заказ.<br>
 Made to order.
 </p>
-
-<div class="crystal-buy">
-  <div class="crystal-price"><a href="nibiru.html?item=beacon">$15 000</a></div>
-  <a class="buy-btn" href="nibiru.html?item=beacon">Купить / Buy<span class="buy-badge" id="beacon-badge" hidden></span></a>
-  <div class="buy-count" id="beacon-count" hidden></div>
-</div>
-
-<script>syOrders('beacon-orders', 'beacon-badge', 'beacon-count');</script>
 
 <div class="cr-viewer" id="bc-viewer" role="dialog" aria-modal="true" aria-label="Маяк на Нибиру / Nibiru Beacon">
   <div class="cr-track"></div>
